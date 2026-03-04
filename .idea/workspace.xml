@@ -6,6 +6,36 @@
   <component name="ChangeListManager">
     <list default="true" id="c69ff8ed-caf2-4544-994e-012fabec0555" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/.idea/backend_temporada.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend_temporada/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/config/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/config/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/admin/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/admin/carrito_admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/migrations/0003_alter_cliente_options.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/migrations/0004_carrito_lineacarrito.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/migrations/0005_cliente_password.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/models/carrito_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/models/cliente_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/models/productos_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/serializers/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/serializers/carrito_serializer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/serializers/login_serializer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/serializers/producto_serializer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/serializers/register_serializer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/views/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/views/carrito_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/views/login_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/views/productos_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/menu/views/register_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend_temporada/requirements.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/asgi.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../config/settings.py" beforeDir="false" />
@@ -80,25 +110,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Django Server.backend_temporada.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.clima.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Lucas/Desktop/Trabajo_final_Ciclo_DAW/backend_temporada",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Django Server.backend_temporada.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.clima.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lucas/Desktop/Trabajo_final_Ciclo_DAW/backend_temporada&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="backend_temporada" type="Python.DjangoServer" factoryName="Django server">
       <module name="backend_temporada" />
