@@ -1,0 +1,15 @@
+<div class="login-card text-white">
+  <h2>Iniciar Sesión</h2>
+  <form [formGroup]="formLogin" (ngSubmit)="iniciarSesion()">
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" formControlName="email" placeholder="tu@email.com">
+    </div>
+    <div class="form-group">
+      <label>Contraseña</label>
+      <input type="password" formControlName="password" placeholder="********">
+    </div>
+    <button type="submit">Entrar</button>
+    <a class="registro d-block m-auto mt-4 text-center" (click)="onRegisterClick()">Regístrate</a>
+  </form>
+</div>

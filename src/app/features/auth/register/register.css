@@ -1,0 +1,118 @@
+.register-card {
+  width: 100%;
+  max-width: 450px;
+  max-height: 90vh;
+  padding: 30px 40px;
+  background: #6b8d23;
+  border-radius: 10px;
+  animation: fadeInScale 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  overflow-y: auto;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.register-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #6b8d23;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(107, 141, 35, 0.2);
+}
+
+.form-text {
+  display: block;
+  color: #f3f1ee;
+  font-size: 0.75rem;
+  margin-top: 3px;
+  opacity: 0.8;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #f3f1ee;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.login-link {
+  color: #f3f1ee;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-size: 0.9rem;
+}
+
+.login-link:hover {
+  transform: scale(1.05);
+  text-decoration: underline;
+}
+
+/* Scrollbar personalizado */
+.register-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.register-card::-webkit-scrollbar-track {
+  background: rgba(243, 241, 238, 0.1);
+  border-radius: 10px;
+}
+
+.register-card::-webkit-scrollbar-thumb {
+  background: rgba(243, 241, 238, 0.5);
+  border-radius: 10px;
+}
+
+.register-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(243, 241, 238, 0.7);
+}

@@ -1,0 +1,19 @@
+<div class="auth-container">
+
+  <!-- Logo section - cambia de lado como el de camilo -->
+  <div class="logo-section" [ngClass]="typePageForm == 'login' ? 'order-0' : 'order-1'">
+    <img class="img-logo" src="assets/img/logo.png" alt="Temporada">
+  </div>
+
+  <!-- Form section - cambia de orden -->
+  <div class="form-section" [ngClass]="typePageForm == 'login' ? 'order-1' : 'order-0'">
+
+    @if (typePageForm === 'login') {
+      <app-login (onToggleRegister)="togglePageForm('register')"></app-login>
+    } @else {
+      <app-register (onToggleLogin)="togglePageForm('login')"></app-register>
+    }
+
+  </div>
+
+</div>

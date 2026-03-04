@@ -1,0 +1,85 @@
+<div class="register-card text-white">
+  <h2>Registrarme</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label>Nombre *</label>
+      <input
+        type="text"
+        formControlName="nombre"
+        placeholder="Tu nombre"
+        [class.is-invalid]="registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched"
+      >
+      @if (registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched) {
+        <small class="form-text ">El nombre es obligatorio</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Apellidos *</label>
+      <input
+        type="text"
+        formControlName="apellidos"
+        placeholder="Tus apellidos"
+        [class.is-invalid]="registerForm.get('apellidos')?.invalid && registerForm.get('apellidos')?.touched"
+      >
+      @if (registerForm.get('apellidos')?.invalid && registerForm.get('apellidos')?.touched) {
+        <small class="form-text ">Los apellidos son obligatorios</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Email *</label>
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="tu@email.com"
+        [class.is-invalid]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched"
+      >
+      @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+        <small class="form-text ">Ingresa un email valido</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Edad *</label>
+      <input type="number" formControlName="edad" placeholder="Ej: 25" min="18" [class.is-invalid]="registerForm.get('edad')?.invalid && registerForm.get('edad')?.touched">
+      <small class="form-text">debes ser mayor de 18 años </small>
+      @if (registerForm.get('edad')?.invalid && registerForm.get('edad')?.touched) {
+        <small class="form-text">La edad minima es 18 años</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Teléfono *</label>
+      <input
+        type="tel"
+        formControlName="telefono"
+        placeholder="Ej: +34 123 321 123"
+        [class.is-invalid]="registerForm.get('telefono')?.invalid && registerForm.get('telefono')?.touched"
+      >
+      @if (registerForm.get('telefono')?.invalid && registerForm.get('telefono')?.touched) {
+        <small class="form-text">El telefono es obligatorio</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Dirección *</label>
+      <input type="text" formControlName="direccion" placeholder="Tu dirección completa" [class.is-invalid]="registerForm.get('direccion')?.invalid && registerForm.get('direccion')?.touched">
+      @if (registerForm.get('direccion')?.invalid && registerForm.get('direccion')?.touched) {
+        <small class="form-text">La dirección es obligatoria</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Contraseña *</label>
+      <input type="password" formControlName="password" placeholder="********" [class.is-invalid]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+      @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
+        <small class="form-text ">La contraseña debe tener minimo 8 caracteres</small>
+      }
+    </div>
+
+    <button type="submit">Registrarme</button>
+    <a class="login-link d-block m-auto mt-4 " (click)="onLoginClick()">Ya tengo una cuenta</a>
+  </form>
+</div>

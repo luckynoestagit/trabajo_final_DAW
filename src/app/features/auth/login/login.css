@@ -1,0 +1,89 @@
+/*tarjeta login*/
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background: #6b8d23;
+  border-radius: 10px;
+  animation: fadeInScale 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/*texto*/
+.login-card h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/*grupos inputs */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  box-sizing: border-box;  /*importante para el width 100%*/
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #6b8d23;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(107, 141, 35, 0.2);
+}
+
+/*botón */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #f3f1ee;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.registro{
+  color: #f3f1ee;
+  text-decoration: none; /*quitar el subrayado*/
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.registro:hover {
+  transform: scale(1.05);
+  text-decoration: underline;
+}
