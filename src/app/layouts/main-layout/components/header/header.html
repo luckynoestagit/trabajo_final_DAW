@@ -1,0 +1,30 @@
+<div class="header">
+  <div class="row align-items-center">
+    <div class="col d-flex justify-content-start">
+      <button type="button" class="btn fs-4 " (click)="cambiarEstadoMenu()">Menu</button>
+    </div>
+
+    <div class="col d-flex justify-content-center">
+      <img class="img-logo " src="../../../../../assets/img/logo.png" alt="Temporada">
+    </div>
+
+    <div class="col d-flex justify-content-end gap-4 me-3">
+      <button class="btn p-0 border-0 bg-transparent">
+        <i class="bi bi-search fs-4"></i>
+      </button>
+      <button class="btn p-0 border-0 bg-transparent ">
+        <i class="bi bi-cart-fill fs-4"></i>
+      </button>
+
+      <button class="btn p-0 border-0 bg-transparent" routerLink="/login">
+        <i class="bi bi-person-fill fs-4"></i>
+      </button>
+
+    </div>
+
+  </div>
+</div>
+
+@if (openMenu() == true) {
+  <app-menu (openMenuDesdeHeader)="cambiarEstadoMenu()"></app-menu>
+}
