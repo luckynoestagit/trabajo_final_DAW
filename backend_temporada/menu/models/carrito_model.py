@@ -4,7 +4,7 @@ from .productos_model import Producto
 
 
 class Carrito(models.Model):
-    cliente = models.OneToOneField(Cliente, on_delete=models.CASCADE, related_name='carrito')
+    cliente = models.OneToOneField(Cliente, on_delete=models.CASCADE, related_name='carrito') # cada cliente tiene un unico carrito OneTOFIELD
     fecha_creacion = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -15,11 +15,12 @@ class Carrito(models.Model):
     def __str__(self):
         return f"Carrito de {self.cliente.nombre}"
 
+    #suma todos los subtotales de las lineas
     @property
     def total(self):
         return sum(linea.subtotal for linea in self.lineas.all())
 
-
+#cada producto dentro del carrito con su cantidad
 class LineaCarrito(models.Model):
     carrito = models.ForeignKey(Carrito, on_delete=models.CASCADE, related_name='lineas')
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
@@ -34,7 +35,7 @@ class LineaCarrito(models.Model):
     def __str__(self):
         return f"{self.cantidad}, {self.producto.nombre}"
 
-#retorna la cantidad
+#retorna la cantidad / calcula automaticamente sin guardar en la base de datos
     @property
     def subtotal(self):
         return self.cantidad * self.producto.precio

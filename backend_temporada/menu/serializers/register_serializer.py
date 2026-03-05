@@ -10,7 +10,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     nombre = serializers.CharField(required=True, allow_blank=False, max_length=100)
     apellidos = serializers.CharField(required=True, allow_blank=False, max_length=100)
     email = serializers.EmailField(required=True, allow_blank=False, max_length=100)
-    password1 = serializers.CharField(required=True, allow_blank=False, min_length=6, write_only=True)
+    password1 = serializers.CharField(required=True, allow_blank=False, min_length=6, write_only=True) #para confirmar que el usuario no se equivoco al escribirla
     password2 = serializers.CharField(required=True, allow_blank=False, min_length=6, write_only=True)
     telefono = serializers.CharField(required=True, max_length=20)
     direccion = serializers.CharField(required=True, allow_blank=False, max_length=100)
@@ -38,7 +38,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('El cliente ya existe')
         return email
 
-    # validar
+    # CADA campo tiene su validacion
 
     def validate_password1(self, password):
         if not any(n.isdigit() for n in password):
@@ -57,6 +57,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("El edad ingresado no es valido")
         return edad
 
+    #comprueba que los pwds sean iguales
     def validate(self, attrs):
         if attrs['password1'] != attrs['password2']:
             raise serializers.ValidationError("Las contraseñas no son iguales")
@@ -65,7 +66,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         from django.contrib.auth.hashers import make_password
 
-        password = validated_data.pop('password1')
+        password = validated_data.pop('password1') #elimina las contraseñas del diccionario antes de guardar
         validated_data.pop('password2')
 
         cliente = Cliente.objects.create(
@@ -75,7 +76,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             telefono=validated_data['telefono'],
             direccion=validated_data['direccion'],
             edad=validated_data['edad'],
-            password=make_password(password),
+            password=make_password(password), #hashea la contraseña antes de guardala, nunca se guarda en texto plano
 
         )
 

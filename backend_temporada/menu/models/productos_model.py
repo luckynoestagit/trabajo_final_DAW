@@ -9,7 +9,7 @@ class Producto(models.Model):
     #Modelo para los platos/productos del menú del restaurante TEMPORADA
 
 
-    CATEGORIAS = [
+    CATEGORIAS = [ #son choices , listas cerradas de opciones validas evitan errores de datos
         ('entrante', 'Entrante'),
         ('principal', 'Plato Principal'),
         ('postre', 'Postre'),
@@ -31,11 +31,11 @@ class Producto(models.Model):
     categoria = models.CharField(max_length=20, choices=CATEGORIAS, null=False, blank=False, verbose_name="Categoría")
     temporada = models.CharField(max_length=20, choices=TEMPORADAS, default='anual', null=False, blank=False,
                                  verbose_name="Temporada")
-    imagen = models.ImageField(upload_to='images/productos/', blank=True, null=True, verbose_name="Imagen")
+    imagen = models.ImageField(upload_to='images/productos/', blank=True, null=True, verbose_name="Imagen") #perimite subir fotos de los platos
     is_active = models.BooleanField(default=True, verbose_name="¿Está activo?") # ya no tenemos el producto- eliminacion de producto permanente
     disponible = models.BooleanField(default=True, verbose_name="¿Disponible para pedir?")  # en el dia de actual esta disponible para pedir? disponibilidad temporal
     fecha_creacion = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
-    fecha_actualizacion = models.DateTimeField(auto_now=True, verbose_name="Última actualización")
+    fecha_actualizacion = models.DateTimeField(auto_now=True, verbose_name="Última actualización") # el autonow se actualiza cada vez que se modifica unn producto
 
     class Meta:
         db_table = 'productos'
