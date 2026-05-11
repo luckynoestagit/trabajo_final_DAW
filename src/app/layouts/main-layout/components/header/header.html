@@ -15,15 +15,18 @@
     </div>
 
     <div class="col d-flex justify-content-end gap-4 me-3">
-      <button class="icon-btn" routerLink="/carta" title="Carta">
+      <a class="icon-btn" routerLink="/carta" title="Carta">
         <i class="bi bi-search fs-5"></i>
-      </button>
-      <button class="icon-btn" routerLink="/carta" title="Carrito">
+      </a>
+      <a class="icon-btn carrito-btn" routerLink="/carrito" title="Carrito">
         <i class="bi bi-cart-fill fs-5"></i>
-      </button>
-      <button class="icon-btn" routerLink="/cuenta" title="Mi cuenta">
+        @if (cantidadCarrito() > 0) {
+          <span class="carrito-badge">{{ cantidadCarrito() }}</span>
+        }
+      </a>
+      <a class="icon-btn" routerLink="/cuenta" title="Mi cuenta">
         <i class="bi bi-person-fill fs-5"></i>
-      </button>
+      </a>
     </div>
 
   </div>

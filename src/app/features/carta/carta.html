@@ -14,6 +14,10 @@
   </div>
 </section>
 
+@if (mensajeAdd) {
+  <div class="add-msg">{{ mensajeAdd }}</div>
+}
+
 @if (cargando) {
   <div class="loading">Cargando carta...</div>
 }
@@ -27,13 +31,20 @@
           <div class="carta-item__dots"></div>
           <span class="precio">{{ p.precio }}€</span>
         </div>
+
         <p class="carta-item__desc">{{ p.descripcion }}</p>
+
         <div class="carta-item__meta">
           <span>{{ p.categoria }}</span>
           <span>·</span>
           <span>{{ p.temporada }}</span>
         </div>
+
+        <button class="btn-add" (click)="agregarAlCarrito(p)">
+          <i class="bi bi-plus"></i> Añadir
+        </button>
       </div>
+
       <div class="carta-item__img"
            [style.backgroundImage]="'url(' + getImagenUrl(p.imagen) + ')'">
       </div>

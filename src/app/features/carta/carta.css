@@ -140,3 +140,38 @@
   font-family: 'Fraunces', serif;
   font-size: 20px;
 }
+.carta-item__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-add {
+  background: transparent;
+  border: 1px solid rgba(107,141,35,0.3);
+  color: #6b8d23;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-family: 'Fraunces', serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.18s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-add:hover {
+  background: #6b8d23;
+  color: #fff;
+}
+
+.add-msg {
+  color: #6b8d23;
+  font-size: 13px;
+  padding: 12px 16px;
+  background: rgba(107,141,35,0.08);
+  border-radius: 6px;
+  border-left: 3px solid #6b8d23;
+  margin: 0 36px 20px;
+}

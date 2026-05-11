@@ -1,0 +1,35 @@
+.carrito { padding: 60px 36px 120px; }
+.t-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b8d23; display: block; margin-bottom: 16px; }
+.display-title { font-family: 'Fraunces', serif; font-size: clamp(48px, 6vw, 90px); line-height: 0.95; color: #6b8d23; margin: 0 0 48px; }
+.display-title em { color: #c9874a; font-style: italic; }
+
+.carrito-vacio { text-align: center; padding: 60px 0; }
+.carrito-vacio p { font-size: 18px; color: #4a4f3d; margin: 0 0 24px; }
+
+.carrito__grid { display: grid; grid-template-columns: 1fr 340px; gap: 48px; align-items: start; }
+
+.carrito-item { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-bottom: 1px solid rgba(107,141,35,0.2); }
+.carrito-item__info h3 { font-family: 'Fraunces', serif; font-size: 24px; color: #6b8d23; margin: 0 0 4px; }
+.carrito-item__cat { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #4a4f3d; margin: 0 0 8px; }
+.carrito-item__precio { font-size: 14px; color: #4a4f3d; }
+
+.carrito-item__actions { display: flex; align-items: center; gap: 20px; }
+
+.cantidad-ctrl { display: inline-flex; align-items: center; gap: 14px; border: 1px solid rgba(107,141,35,0.3); border-radius: 999px; padding: 6px 14px; }
+.cantidad-ctrl button { background: none; border: none; font-size: 18px; color: #6b8d23; cursor: pointer; width: 24px; height: 24px; }
+.cantidad-ctrl span { font-family: 'Fraunces', serif; font-size: 20px; color: #6b8d23; min-width: 24px; text-align: center; }
+
+.carrito-item__subtotal { font-family: 'Fraunces', serif; font-size: 22px; color: #a66b34; min-width: 80px; text-align: right; }
+
+.btn-eliminar { background: none; border: none; color: #8b3a1f; cursor: pointer; font-size: 18px; padding: 4px; transition: color 0.18s; }
+.btn-eliminar:hover { color: #c0392b; }
+
+.carrito__resumen { background: #faf8f4; border: 1px solid rgba(107,141,35,0.2); border-radius: 8px; padding: 28px; position: sticky; top: 100px; }
+.resumen-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed rgba(107,141,35,0.2); }
+.resumen-row span { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #4a4f3d; text-transform: uppercase; letter-spacing: 0.1em; }
+.resumen-row strong { font-family: 'Fraunces', serif; font-size: 18px; color: #6b8d23; }
+.total-precio { font-size: 28px; color: #a66b34; }
+
+.btn-primary { width: 100%; padding: 14px; background: #6b8d23; color: #fff; border: none; border-radius: 999px; font-family: 'Fraunces', serif; font-size: 15px; cursor: pointer; margin-top: 16px; transition: background 0.18s; }
+.btn-primary:hover { background: #516a1a; }
+.btn-link { display: block; text-align: center; margin-top: 12px; background: none; border: none; color: #6b8d23; font-family: 'Fraunces', serif; cursor: pointer; text-decoration: underline; }

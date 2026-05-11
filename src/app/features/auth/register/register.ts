@@ -5,6 +5,7 @@ import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-register',
+  standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './register.html',
   styleUrl: './register.css',
@@ -36,22 +37,36 @@ export class Register {
 
   onSubmit() {
     if (this.registerForm.valid) {
+      this.errorMessage = '';
       this.authService.registro(this.registerForm.value).subscribe({
         next: () => {
-          console.log('Registro exitoso');
           this.router.navigate(['/login']);
         },
         error: (err) => {
           const errores = err.error;
-          if (errores.non_field_errors) {
+
+          if (errores && errores.non_field_errors) {
             this.errorMessage = errores.non_field_errors[0];
-          } else {
-            this.errorMessage = 'Error al registrarse, revisa los datos';
+            return;
           }
+
+          if (errores && typeof errores === 'object') {
+            const mensajes: string[] = [];
+            Object.keys(errores).forEach(campo => {
+              const valor = errores[campo];
+              const msg = Array.isArray(valor) ? valor[0] : valor;
+              mensajes.push(msg);
+            });
+            if (mensajes.length > 0) {
+              this.errorMessage = mensajes.join(' | ');
+              return;
+            }
+          }
+
+          this.errorMessage = 'Error al registrarse, revisa los datos';
         }
       });
     } else {
-      console.log('Formulario inválido');
       Object.keys(this.registerForm.controls).forEach(key => {
         this.registerForm.get(key)?.markAsTouched();
       });

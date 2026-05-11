@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 import { ProductoService, Producto } from '../../services/producto.service';
+import { CarritoLocalService } from '../../services/carrito-local.service';
 
 @Component({
   selector: 'app-carta',
@@ -14,6 +16,7 @@ export class CartaComponent implements OnInit {
   productosFiltrados: Producto[] = [];
   categoriaActiva = 'todos';
   cargando = true;
+  mensajeAdd = '';
 
   categorias = [
     { id: 'todos', label: 'Todo' },
@@ -23,13 +26,20 @@ export class CartaComponent implements OnInit {
     { id: 'bebida', label: 'Bebidas' },
   ];
 
-  constructor(private productoService: ProductoService) {}
+  constructor(
+    private productoService: ProductoService,
+    private route: ActivatedRoute,
+    private carritoService: CarritoLocalService
+  ) {}
 
   ngOnInit() {
     this.productoService.getProductos().subscribe({
       next: (data) => {
         this.productos = data;
-        this.productosFiltrados = data;
+        this.route.queryParams.subscribe(params => {
+          const cat = params['cat'] || 'todos';
+          this.filtrar(cat);
+        });
         this.cargando = false;
       },
       error: () => { this.cargando = false; }
@@ -41,6 +51,12 @@ export class CartaComponent implements OnInit {
     this.productosFiltrados = categoria === 'todos'
       ? this.productos
       : this.productos.filter(p => p.categoria === categoria);
+  }
+
+  agregarAlCarrito(producto: Producto) {
+    this.carritoService.agregar(producto);
+    this.mensajeAdd = `${producto.nombre} añadido al carrito`;
+    setTimeout(() => this.mensajeAdd = '', 2000);
   }
 
   getImagenUrl(imagen: string | null): string {

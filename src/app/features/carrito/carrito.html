@@ -1,0 +1,53 @@
+<section class="carrito">
+  <span class="t-tag">Tu pedido</span>
+  <h1 class="display-title">Tu <em>carrito</em>.</h1>
+
+  @if (items.length === 0) {
+    <div class="carrito-vacio">
+      <p>No tienes productos en el carrito.</p>
+      <button class="btn-primary" (click)="irACarta()">Ver la carta →</button>
+    </div>
+  } @else {
+    <div class="carrito__grid">
+      <div class="carrito__lista">
+        @for (item of items; track item.producto.id) {
+          <div class="carrito-item">
+            <div class="carrito-item__info">
+              <h3>{{ item.producto.nombre }}</h3>
+              <p class="carrito-item__cat">{{ item.producto.categoria }}</p>
+              <span class="carrito-item__precio">{{ item.producto.precio }}€ / ud.</span>
+            </div>
+            <div class="carrito-item__actions">
+              <div class="cantidad-ctrl">
+                <button (click)="restar(item.producto.id)">−</button>
+                <span>{{ item.cantidad }}</span>
+                <button (click)="sumar(item.producto.id)">+</button>
+              </div>
+              <span class="carrito-item__subtotal">
+                {{ (item.cantidad * +item.producto.precio).toFixed(2) }}€
+              </span>
+              <button class="btn-eliminar" (click)="eliminar(item.producto.id)">
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+
+      <aside class="carrito__resumen">
+        <span class="t-tag">Resumen</span>
+        <div class="resumen-row">
+          <span>Productos</span>
+          <strong>{{ items.length }}</strong>
+        </div>
+        <div class="resumen-row">
+          <span>Total</span>
+          <strong class="total-precio">{{ total.toFixed(2) }}€</strong>
+        </div>
+        <hr>
+        <button class="btn-primary" (click)="irACheckout()">Realizar pedido →</button>
+        <button class="btn-link" (click)="irACarta()">← Seguir comprando</button>
+      </aside>
+    </div>
+  }
+</section>

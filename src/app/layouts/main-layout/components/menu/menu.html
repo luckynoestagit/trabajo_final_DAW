@@ -11,30 +11,28 @@
     <div>
       <h4 class="menu-col-title">Carta</h4>
       <ul>
-        <li><a routerLink="/carta" (click)="openMenuDesdeHeader.emit()">Los más pedidos</a></li>
-        <li><a routerLink="/carta" (click)="openMenuDesdeHeader.emit()">Para empezar</a></li>
-        <li><a routerLink="/carta" (click)="openMenuDesdeHeader.emit()">Platos principales</a></li>
-        <li><a routerLink="/carta" (click)="openMenuDesdeHeader.emit()">Postres</a></li>
-        <li><a routerLink="/carta" (click)="openMenuDesdeHeader.emit()">Bebidas</a></li>
+        <li><a (click)="navegar('/carta', 'todos')">Toda la carta</a></li>
+        <li><a (click)="navegar('/carta', 'entrante')">Para empezar</a></li>
+        <li><a (click)="navegar('/carta', 'principal')">Platos principales</a></li>
+        <li><a (click)="navegar('/carta', 'postre')">Postres</a></li>
+        <li><a (click)="navegar('/carta', 'bebida')">Bebidas</a></li>
       </ul>
     </div>
 
     <div>
-      <h4 class="menu-col-title">Experiencias</h4>
+      <h4 class="menu-col-title">Reservas y contacto</h4>
       <ul>
-        <li><a routerLink="/reservar" (click)="openMenuDesdeHeader.emit()">Reservar mesa</a></li>
-        <li><a routerLink="/contacto" (click)="openMenuDesdeHeader.emit()">Eventos privados</a></li>
-        <li><a routerLink="/carta" (click)="openMenuDesdeHeader.emit()">Menú del día</a></li>
-        <li><a routerLink="/carta" (click)="openMenuDesdeHeader.emit()">Menú degustación</a></li>
+        <li><a (click)="navegar('/reservar')">Reservar mesa</a></li>
+        <li><a (click)="navegar('/contacto')">Contacto</a></li>
       </ul>
     </div>
 
     <div>
-      <h4 class="menu-col-title">Sobre Temporada</h4>
+      <h4 class="menu-col-title">Tu cuenta</h4>
       <ul>
-        <li><a routerLink="/contacto" (click)="openMenuDesdeHeader.emit()">Contacto</a></li>
-        <li><a routerLink="/cuenta" (click)="openMenuDesdeHeader.emit()">Mi cuenta</a></li>
-        <li><a routerLink="/login" (click)="openMenuDesdeHeader.emit()">Iniciar sesión</a></li>
+        <li><a (click)="navegar('/cuenta')">Mi cuenta</a></li>
+        <li><a (click)="navegar('/login')">Iniciar sesión</a></li>
+        <li><a (click)="navegar('/register')">Crear cuenta</a></li>
       </ul>
     </div>
 
