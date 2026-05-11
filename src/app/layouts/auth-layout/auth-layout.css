@@ -1,95 +1,131 @@
-.auth-container {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  background-color: #f3f1ee;
+.auth-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background: #faf8f4;
+}
+
+/* Panel izquierdo verde con foto */
+.auth-panel {
   position: relative;
+  background: #6b8d23;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
+  transition: order 0.6s ease;
 }
 
-/* Logo section - se desliza de un lado a otro */
-.logo-section {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.auth-panel__bg {
   position: absolute;
-  height: 100%;
-  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55),
-  left 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  filter: sepia(0.1) saturate(1.1);
+}
+
+.auth-panel__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(107,141,35,0.4), rgba(107,141,35,0.8));
+}
+
+.auth-panel__content {
+  position: relative;
   z-index: 2;
-}
-
-/* Cuando está a la izquierda (login) */
-.logo-section.order-0 {
-  transform: translateX(0);
-  left: 0;
-}
-
-/* Cuando está a la derecha (register) */
-.logo-section.order-1 {
-  transform: translateX(100%);
-  left: 0;
-}
-
-.img-logo {
-  max-width: 60%;
-  height: auto;
-  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-/* Form section - también se desliza suavemente */
-.form-section {
-  width: 50%;
+  padding: 48px 56px;
+  flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.auth-brand {
+  font-family: 'Fraunces', serif;
+  font-size: 42px;
+  color: #f3f1ee;
+  text-decoration: none;
+  cursor: pointer;
+  letter-spacing: -0.01em;
+  display: block;
+  margin-bottom: auto;
+}
+
+.auth-quote {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  color: #f3f1ee;
+  margin: 80px 0 16px;
+  max-width: 480px;
+  font-style: italic;
+}
+
+.auth-quote-attr {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(243,241,238,0.7);
+  letter-spacing: 0.14em;
+}
+
+/* Marquee inferior */
+.auth-marquee {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid rgba(243,241,238,0.2);
+  padding: 18px 0;
+}
+
+.auth-marquee__track {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  color: #ffffff !important;
+  letter-spacing: 0.02em;
+}
+
+.auth-marquee__track span {
+  margin: 0 20px;
+  color: #ffffff !important;
+}
+
+.auth-marquee__track .dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #ffffff !important;
+  border-radius: 50%;
+  transform: translateY(-4px);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Panel derecho — formulario */
+.auth-form-panel {
+  background: #faf8f4;
+  display: flex;
   align-items: center;
-  background-color: #f3f1ee;
-  position: absolute;
-  height: 100%;
-  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55),
-  left 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55),
-  right 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  z-index: 1;
-}
-
-/* Cuando el form está a la derecha (login) */
-.form-section.order-1 {
-  transform: translateX(0);
-  left: 50%;
-}
-
-/* Cuando el form está a la izquierda (register) */
-.form-section.order-0 {
-  transform: translateX(-100%);
-  left: 50%;
-}
-
-/* Efecto hover en el logo */
-.logo-section:hover .img-logo {
-  transform: scale(1.05);
+  justify-content: center;
+  padding: 40px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .auth-container {
-    flex-direction: column;
+  .auth-wrap {
+    grid-template-columns: 1fr;
   }
-
-  .logo-section,
-  .form-section {
-    width: 100%;
-    position: relative;
-    transform: none !important;
+  .auth-panel {
+    min-height: 280px;
   }
-
-  .logo-section.order-1 {
-    transform: translateX(0) !important;
+  .auth-panel__content {
+    padding: 32px;
   }
-
-  .form-section.order-0,
-  .form-section.order-1 {
-    transform: translateX(0) !important;
-    left: 0 !important;
-  }
+  .auth-quote { font-size: 28px; margin: 32px 0 12px; }
 }

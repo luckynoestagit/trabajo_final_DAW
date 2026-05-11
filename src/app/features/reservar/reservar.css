@@ -1,0 +1,38 @@
+.reserva { padding: 60px 36px 120px; }
+.t-tag { font-family: monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b8d23; display: block; margin-bottom: 16px; }
+.display-title { font-family: 'Fraunces', serif; font-size: clamp(48px, 6vw, 90px); line-height: 0.95; color: #6b8d23; margin: 0 0 24px; }
+.display-title em { color: #c9874a; font-style: italic; }
+.steps { display: flex; gap: 32px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #4a4f3d; border-top: 1px dashed rgba(107,141,35,0.3); padding-top: 18px; }
+.steps .is-on { color: #6b8d23; }
+.reserva__grid { display: grid; grid-template-columns: 1fr 340px; gap: 48px; align-items: start; margin-top: 40px; }
+.reserva__main { background: #faf8f4; padding: 40px; border: 1px solid rgba(107,141,35,0.2); border-radius: 8px; }
+.reserva__h3 { font-family: 'Fraunces', serif; font-size: 26px; color: #6b8d23; margin: 0 0 18px; }
+.input-fecha { width: 100%; border: 1px solid rgba(107,141,35,0.3); border-radius: 4px; padding: 12px 14px; font-family: 'Fraunces', serif; font-size: 16px; background: #fff; }
+.horas-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.hora-btn { padding: 12px; border: 1px solid rgba(107,141,35,0.3); background: transparent; border-radius: 4px; font-family: monospace; font-size: 13px; color: #6b8d23; cursor: pointer; transition: all 0.18s; }
+.hora-btn:hover, .hora-btn.is-on { background: #6b8d23; color: #fff; border-color: #6b8d23; }
+.reserva__row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.personas-ctrl { display: inline-flex; align-items: center; gap: 18px; border: 1px solid rgba(107,141,35,0.3); border-radius: 999px; padding: 8px 16px; }
+.personas-ctrl button { background: none; border: none; font-size: 20px; color: #6b8d23; cursor: pointer; width: 28px; height: 28px; }
+.personas-ctrl span { font-family: 'Fraunces', serif; font-size: 24px; color: #6b8d23; min-width: 30px; text-align: center; }
+.sala-btns { display: flex; gap: 8px; }
+.sala-btns button { flex: 1; padding: 14px; border: 1px solid rgba(107,141,35,0.3); background: transparent; color: #6b8d23; border-radius: 4px; cursor: pointer; font-family: 'Fraunces', serif; transition: all 0.18s; }
+.sala-btns button.is-on { background: #6b8d23; color: #fff; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-family: monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #4a4f3d; }
+.input { border: 1px solid rgba(107,141,35,0.3); border-radius: 4px; padding: 12px 14px; font-family: 'Fraunces', serif; font-size: 15px; background: #fff; }
+.reserva__summary { background: #faf8f4; border: 1px solid rgba(107,141,35,0.2); border-radius: 8px; padding: 28px; position: sticky; top: 100px; }
+.summary-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed rgba(107,141,35,0.2); }
+.summary-row span { font-family: monospace; font-size: 11px; color: #4a4f3d; text-transform: uppercase; letter-spacing: 0.1em; }
+.summary-row strong { font-family: 'Fraunces', serif; font-size: 18px; color: #6b8d23; }
+.btn-primary { width: 100%; padding: 14px; background: #6b8d23; color: #fff; border: none; border-radius: 999px; font-family: 'Fraunces', serif; font-size: 15px; cursor: pointer; margin-top: 16px; transition: background 0.18s; }
+.btn-primary:hover { background: #516a1a; }
+.btn-link { display: block; text-align: center; margin-top: 12px; background: none; border: none; color: #6b8d23; font-family: 'Fraunces', serif; cursor: pointer; text-decoration: underline; }
+.reserva-ok { padding: 80px 36px; text-align: center; position: relative; max-width: 720px; margin: 0 auto; }
+.reserva-stamp { background: #c9874a; color: #fff; padding: 6px 14px; border-radius: 999px; font-family: monospace; font-size: 11px; letter-spacing: 0.18em; transform: rotate(-3deg); display: inline-block; margin-bottom: 16px; }
+.ok-card { background: #faf8f4; border: 1px solid rgba(107,141,35,0.2); border-radius: 8px; padding: 32px; text-align: left; margin: 32px 0; }
+.ok-row { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px dashed rgba(107,141,35,0.2); }
+.ok-row span { font-family: monospace; font-size: 11px; color: #4a4f3d; text-transform: uppercase; }
+.ok-row strong { font-family: 'Fraunces', serif; font-size: 20px; color: #6b8d23; }
+.error-msg { color: #8b3a1f; font-size: 14px; margin-top: 8px; }

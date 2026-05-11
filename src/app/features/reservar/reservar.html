@@ -1,0 +1,107 @@
+@if (confirmada) {
+  <div class="reserva-ok">
+    <span class="reserva-stamp">{{ reservaId }}</span>
+    <span class="t-tag">Reserva confirmada</span>
+    <h1 class="display-title">Gracias, <em>te esperamos</em>.</h1>
+    <p>Hemos enviado la confirmación a tu email.</p>
+    <div class="ok-card">
+      <div class="ok-row"><span>Fecha</span><strong>{{ form.value.fecha }}</strong></div>
+      <div class="ok-row"><span>Hora</span><strong>{{ form.value.hora }}</strong></div>
+      <div class="ok-row"><span>Personas</span><strong>{{ form.value.num_personas }}</strong></div>
+      <div class="ok-row"><span>Sala</span><strong>{{ form.value.sala }}</strong></div>
+    </div>
+  </div>
+} @else {
+  <section class="reserva">
+    <div class="reserva__head">
+      <span class="t-tag">Reservar mesa</span>
+      <h1 class="display-title">Elige tu <em>momento</em>.</h1>
+      <div class="steps">
+        <span [class.is-on]="step >= 1">01 · Fecha y hora</span>
+        <span [class.is-on]="step >= 2">02 · Tus datos</span>
+      </div>
+    </div>
+
+    <div class="reserva__grid" [formGroup]="form">
+
+      <div class="reserva__main">
+
+        @if (step === 1) {
+          <h3 class="reserva__h3">Fecha</h3>
+          <input class="input-fecha" type="date" formControlName="fecha">
+
+          <h3 class="reserva__h3" style="margin-top:32px">Hora</h3>
+          <div class="horas-grid">
+            @for (h of horas; track h) {
+              <button class="hora-btn"
+                      [class.is-on]="form.value.hora === h"
+                      (click)="seleccionarHora(h)">{{ h }}</button>
+            }
+          </div>
+
+          <div class="reserva__row" style="margin-top:32px">
+            <div>
+              <h3 class="reserva__h3">Comensales</h3>
+              <div class="personas-ctrl">
+                <button (click)="form.patchValue({num_personas: form.value.num_personas - 1})">−</button>
+                <span>{{ form.value.num_personas }}</span>
+                <button (click)="form.patchValue({num_personas: form.value.num_personas + 1})">+</button>
+              </div>
+            </div>
+            <div>
+              <h3 class="reserva__h3">Sala</h3>
+              <div class="sala-btns">
+                <button [class.is-on]="form.value.sala === 'principal'"
+                        (click)="form.patchValue({sala: 'principal'})">Sala principal</button>
+                <button [class.is-on]="form.value.sala === 'terraza'"
+                        (click)="form.patchValue({sala: 'terraza'})">Terraza</button>
+              </div>
+            </div>
+          </div>
+        }
+
+        @if (step === 2) {
+          <h3 class="reserva__h3">Tus datos</h3>
+          <div class="form-grid">
+            <div class="field">
+              <label>Nombre</label>
+              <input class="input" type="text" formControlName="nombre_cliente" placeholder="Tu nombre">
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input class="input" type="email" formControlName="email_cliente" placeholder="tu@email.com">
+            </div>
+            <div class="field">
+              <label>Teléfono</label>
+              <input class="input" type="tel" formControlName="telefono_cliente" placeholder="+34 ...">
+            </div>
+            <div class="field" style="grid-column: span 2">
+              <label>Peticiones especiales</label>
+              <textarea class="input" formControlName="observaciones" placeholder="Alergias, celebración..."></textarea>
+            </div>
+          </div>
+          @if (errorMsg) {
+            <p class="error-msg">{{ errorMsg }}</p>
+          }
+        }
+      </div>
+
+      <aside class="reserva__summary">
+        <span class="t-tag">Resumen</span>
+        <div class="summary-row"><span>Fecha</span><strong>{{ form.value.fecha || '—' }}</strong></div>
+        <div class="summary-row"><span>Hora</span><strong>{{ form.value.hora }}</strong></div>
+        <div class="summary-row"><span>Personas</span><strong>{{ form.value.num_personas }}</strong></div>
+        <div class="summary-row"><span>Sala</span><strong>{{ form.value.sala }}</strong></div>
+        <hr>
+        @if (step === 1) {
+          <button class="btn-primary" (click)="siguiente()">Siguiente →</button>
+        }
+        @if (step === 2) {
+          <button class="btn-primary" (click)="confirmar()">Confirmar reserva →</button>
+          <button class="btn-link" (click)="step = 1">← Cambiar fecha</button>
+        }
+      </aside>
+
+    </div>
+  </section>
+}

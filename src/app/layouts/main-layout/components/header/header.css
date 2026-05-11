@@ -1,25 +1,41 @@
-.header{
-  background-color: #f3f1ee;
-}
-
-.img-logo {
-  width: 100%;
-  max-width: 240px;
-  min-width: 140px; /*para que no se vuelva microscopico en movil*/
-  height: auto;
-}
-
-.btn {
+.btn-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
   color: #6b8d23;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
 }
 
-/* Clase independiente */
-.primary-btn {
-  background-color: var(--color-primary);
-  color: var(--color-secondary);
+.btn-menu span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #6b8d23;
 }
 
+.icon-btn {
+  background: none;
+  border: none;
+  color: #6b8d23;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.18s;
+  padding: 0;
+}
 
+.icon-btn:hover {
+  background: rgba(107,141,35,0.1);
+}
 
 
 

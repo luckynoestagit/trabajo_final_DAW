@@ -1,20 +1,17 @@
-import {Component, signal} from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import {Menu} from '../menu/menu';
+import { Menu } from '../menu/menu';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   templateUrl: 'header.html',
-  imports: [
-    Menu,
-    RouterLink,
-  ],
+  imports: [Menu, RouterLink],
   styleUrl: 'header.css'
 })
 export class HeaderComponent {
   openMenu = signal<boolean>(false);
-  cambiarEstadoMenu () {
-    this.openMenu.update(state => !state)
+  cambiarEstadoMenu() {
+    this.openMenu.update(state => !state);
   }
 }

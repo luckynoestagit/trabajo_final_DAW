@@ -59,7 +59,7 @@
 
 .subscribe-btn {
   padding: 15px 30px;
-  color: var(--color-primary); !important;
+  color: var(--color-primary) !important;
   border: none;
   border-radius: 0 4px 4px 0;
   font-weight: 600;
