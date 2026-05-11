@@ -1,7 +1,6 @@
-from .productos_admin import ProductoAdmin
-from .cliente_admin import ClienteAdmin
-from .carrito_admin import CarritoAdmin
-
-
-
-
+from .productos_admin import *
+from .cliente_admin import *
+from .carrito_admin import *
+from .reserva_admin import *
+from .pedido_admin import *
+from .mensaje_admin import *

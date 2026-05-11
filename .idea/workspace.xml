@@ -5,17 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="432491f6-4416-4d2b-a168-78bbf3decea0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend_temporada/menu/models/mensaje_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/models/mensaje_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/models/pedido_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/models/pedido_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/models/reserva_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/models/reserva_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/admin/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/admin/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/admin/mensaje_admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/admin/mensaje_admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/admin/pedido_admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/admin/pedido_admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/admin/reserva_admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/admin/reserva_admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/serializers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/serializers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/serializers/mensaje_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/serializers/mensaje_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/serializers/pedido_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/serializers/pedido_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/serializers/reserva_serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/serializers/reserva_serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/views/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/views/mensaje_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/views/mensaje_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/views/pedido_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/views/pedido_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_temporada/menu/views/reserva_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_temporada/menu/views/reserva_view.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,6 +53,9 @@
   "associatedIndex": 3
 }]]></component>
   <component name="ProjectId" id="3Da78jIPLgEAmoomDLoLRYzPmYC" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -98,7 +117,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1778508171376</updated>
-      <workItem from="1778508173479" duration="4335000" />
+      <workItem from="1778508173479" duration="5047000" />
     </task>
     <servers />
   </component>
