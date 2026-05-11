@@ -1,13 +1,11 @@
-import { Component, output } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import {Component, output} from '@angular/core';
 
 @Component({
   selector: 'app-menu',
-  standalone: true,
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './menu.html',
   styleUrl: './menu.css',
 })
 export class Menu {
-  openMenuDesdeHeader = output();
+  openMenuDesdeHeader = output()
 }
