@@ -175,3 +175,25 @@
   border-left: 3px solid #6b8d23;
   margin: 0 36px 20px;
 }
+.busqueda-info {
+  padding: 16px 36px;
+  background: rgba(107,141,35,0.06);
+  border-left: 3px solid #6b8d23;
+  margin: 0 0 20px;
+  font-size: 15px;
+  color: #4a4f3d;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-limpiar {
+  background: none;
+  border: 1px solid rgba(107,141,35,0.3);
+  color: #6b8d23;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  cursor: pointer;
+}

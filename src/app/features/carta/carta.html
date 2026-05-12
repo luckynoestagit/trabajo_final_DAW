@@ -17,6 +17,12 @@
 @if (mensajeAdd) {
   <div class="add-msg">{{ mensajeAdd }}</div>
 }
+@if (terminoBusqueda) {
+  <div class="busqueda-info">
+    Resultados para "<strong>{{ terminoBusqueda }}</strong>" — {{ productosFiltrados.length }} encontrados
+    <button class="btn-limpiar" (click)="limpiarBusqueda()">Limpiar ✕</button>
+  </div>
+}
 
 @if (cargando) {
   <div class="loading">Cargando carta...</div>

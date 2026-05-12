@@ -22,7 +22,7 @@ export class Products implements OnInit {
   ngOnInit() {
     this.productoService.getProductos().subscribe({
       next: (data) => {
-        this.productos = data;
+        this.productos = data.sort(() => Math.random() - 0.5);
         this.cargando = false;
       },
       error: (err) => {
@@ -38,12 +38,12 @@ export class Products implements OnInit {
 
   scrollLeft() {
     const container = document.querySelector('.product-container') as HTMLElement;
-    container.scrollBy({ left: -320, behavior: 'smooth' });
+    container.scrollBy({ left: -300, behavior: 'smooth' });
   }
 
   scrollRight() {
     const container = document.querySelector('.product-container') as HTMLElement;
-    container.scrollBy({ left: 320, behavior: 'smooth' });
+    container.scrollBy({ left: 300, behavior: 'smooth' });
   }
 
   getImagenUrl(imagen: string | null): string {

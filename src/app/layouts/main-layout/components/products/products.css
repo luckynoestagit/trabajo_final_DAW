@@ -95,9 +95,13 @@
 
 .product-info h3 {
   font-family: 'Fraunces', serif;
-  font-size: 22px;
+  font-size: 20px;
   color: #6b8d23;
   margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 260px;
 }
 
 .product-origen {
@@ -162,4 +166,14 @@
   color: #6b8d23;
   font-family: 'Fraunces', serif;
   font-size: 18px;
+}
+.product-container {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.product-container::-webkit-scrollbar {
+  display: none;
 }

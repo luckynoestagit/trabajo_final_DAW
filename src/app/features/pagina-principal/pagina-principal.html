@@ -1,3 +1,4 @@
+
 <div class="header-imgs">
   <div class="row row-cols-3 g-0">
     <div class="col col-sm p-0">
@@ -18,13 +19,19 @@
   </div>
 </div>
 
-<div class="img-restaurants">
-  <div class="row row-cols-2">
-    <div class="col col-sm">
-      <img src="assets/img/mesa.jpg" class="img-fluid" alt="ImagenRestaurante">
+<div class="salas-section">
+  <div class="salas-grid">
+    <div class="sala-card" (click)="irAReservar('principal')">
+      <img src="assets/img/sala-principal.jpg" class="sala-img" alt="Sala principal">
+      <div class="sala-info">
+        <span class="sala-num">01 · Nuestra sala, C/ Major 42</span>
+      </div>
     </div>
-    <div class="col col-sm">
-      <img src="assets/img/exterior.jpg" class="img-fluid" alt="mesacomida">
+    <div class="sala-card" (click)="irAReservar('terraza')">
+      <img src="assets/img/terraza-interior.jpg" class="sala-img" alt="Terraza interior">
+      <div class="sala-info">
+        <span class="sala-num">02 · Terraza interior</span>
+      </div>
     </div>
   </div>
 </div>

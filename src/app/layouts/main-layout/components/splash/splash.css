@@ -1,0 +1,108 @@
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #f3f1ee;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.hojas-container {
+  position: absolute;
+  inset: 0;
+}
+
+.hoja {
+  position: absolute;
+  transform: rotate(var(--rotate)) scaleX(var(--flipX));
+  transition: left 0.4s ease, top 0.4s ease;
+  z-index: 1;
+}
+
+.hoja svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.12));
+}
+
+.dispersar .hoja {
+  animation: windBlow 3s ease-out forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes windBlow {
+  0% {
+    transform: rotate(var(--rotate)) scaleX(var(--flipX));
+    opacity: 1;
+  }
+  15% {
+    transform: rotate(calc(var(--rotate) + 20deg)) scaleX(var(--flipX)) translate(8vw, -2vh);
+    opacity: 1;
+  }
+  35% {
+    transform: rotate(calc(var(--rotate) - 15deg)) scaleX(var(--flipX)) translate(25vw, -8vh);
+    opacity: 0.9;
+  }
+  55% {
+    transform: rotate(calc(var(--rotate) + 30deg)) scaleX(var(--flipX)) translate(50vw, -5vh) scale(0.8);
+    opacity: 0.7;
+  }
+  75% {
+    transform: rotate(calc(var(--rotate) - 25deg)) scaleX(var(--flipX)) translate(80vw, -12vh) scale(0.5);
+    opacity: 0.4;
+  }
+  100% {
+    transform: rotate(calc(var(--rotate) + 40deg)) scaleX(var(--flipX)) translate(120vw, -20vh) scale(0.2);
+    opacity: 0;
+  }
+}
+
+.splash-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: opacity 0.6s ease;
+}
+
+.splash-center.fade-out {
+  opacity: 0;
+}
+
+.splash-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.splash-btn:hover {
+  transform: scale(1.1);
+}
+
+.btn-hoja {
+  width: 120px;
+  height: 168px;
+  filter: drop-shadow(0 6px 20px rgba(107,141,35,0.4));
+  transition: filter 0.2s;
+}
+
+.splash-btn:hover .btn-hoja {
+  filter: drop-shadow(0 10px 30px rgba(107,141,35,0.5));
+}
+
+.splash-text {
+  position: absolute;
+  font-family: ' Inter ', serif;
+  font-size: 20px;
+  color: #f3f1ee;
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.dispersar {
+  pointer-events: none;
+}

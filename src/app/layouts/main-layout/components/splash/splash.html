@@ -1,0 +1,40 @@
+<div class="splash" [class.dispersar]="dispersar" (click)="onClick()">
+  <div class="hojas-container">
+    @for (h of hojas; track $index) {
+      <div class="hoja"
+           [style.left.%]="h.x"
+           [style.top.%]="h.y"
+           [style.width.px]="h.size"
+           [style.height.px]="h.size * 1.4"
+           [style.--rotate]="h.rotation + 'deg'"
+           [style.--dx]="h.disperseX + 'vw'"
+           [style.--dy]="h.disperseY + 'vh'"
+           [style.--dr]="h.disperseRotate + 'deg'"
+           [style.--delay]="h.delay + 's'"
+           [style.--flipX]="h.flipX">
+        <svg viewBox="0 0 50 70" xmlns="http://www.w3.org/2000/svg">
+          <path d="M25 2 C32 10, 46 18, 48 32 C49 42, 42 56, 25 68 C8 56, 1 42, 2 32 C4 18, 18 10, 25 2Z" [attr.fill]="h.fill" stroke="none"/>
+          <path d="M25 8 L25 62" [attr.stroke]="h.vein" stroke-width="1" fill="none" opacity="0.5"/>
+          <path d="M25 20 L14 14" [attr.stroke]="h.vein" stroke-width="0.7" fill="none" opacity="0.4"/>
+          <path d="M25 20 L36 14" [attr.stroke]="h.vein" stroke-width="0.7" fill="none" opacity="0.4"/>
+          <path d="M25 30 L11 24" [attr.stroke]="h.vein" stroke-width="0.7" fill="none" opacity="0.4"/>
+          <path d="M25 30 L39 24" [attr.stroke]="h.vein" stroke-width="0.7" fill="none" opacity="0.4"/>
+          <path d="M25 40 L13 35" [attr.stroke]="h.vein" stroke-width="0.7" fill="none" opacity="0.4"/>
+          <path d="M25 40 L37 35" [attr.stroke]="h.vein" stroke-width="0.7" fill="none" opacity="0.4"/>
+          <path d="M25 50 L16 46" [attr.stroke]="h.vein" stroke-width="0.7" fill="none" opacity="0.4"/>
+          <path d="M25 50 L34 46" [attr.stroke]="h.vein" stroke-width="0.7" fill="none" opacity="0.4"/>
+        </svg>
+      </div>
+    }
+  </div>
+
+  <div class="splash-center" [class.fade-out]="dispersar">
+    <div class="splash-btn">
+      <svg class="btn-hoja" viewBox="0 0 50 70" xmlns="http://www.w3.org/2000/svg">
+        <path d="M25 2 C32 10, 46 18, 48 32 C49 42, 42 56, 25 68 C8 56, 1 42, 2 32 C4 18, 18 10, 25 2Z" fill="#6b8d23"/>
+        <path d="M25 8 L25 62" stroke="#4a6118" stroke-width="1" fill="none" opacity="0.4"/>
+      </svg>
+      <span class="splash-text">Entrar</span>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ReservaService } from '../../services/reserva.service';
 
 @Component({
@@ -20,7 +21,11 @@ export class ReservarComponent {
 
   horas = ['13:00','13:30','14:00','14:30','15:00','20:00','20:30','21:00','21:30','22:00'];
 
-  constructor(private fb: FormBuilder, private reservaService: ReservaService) {
+  constructor(
+    private fb: FormBuilder,
+    private reservaService: ReservaService,
+    private route: ActivatedRoute
+  ) {
     this.form = this.fb.group({
       fecha: ['', Validators.required],
       hora: ['21:00', Validators.required],
@@ -30,6 +35,12 @@ export class ReservarComponent {
       email_cliente: ['', [Validators.required, Validators.email]],
       telefono_cliente: ['', Validators.required],
       observaciones: ['']
+    });
+
+    this.route.queryParams.subscribe(params => {
+      if (params['sala']) {
+        this.form.patchValue({ sala: params['sala'] });
+      }
     });
   }
 

@@ -17,6 +17,7 @@ export class CartaComponent implements OnInit {
   categoriaActiva = 'todos';
   cargando = true;
   mensajeAdd = '';
+  terminoBusqueda = '';
 
   categorias = [
     { id: 'todos', label: 'Todo' },
@@ -38,7 +39,18 @@ export class CartaComponent implements OnInit {
         this.productos = data;
         this.route.queryParams.subscribe(params => {
           const cat = params['cat'] || 'todos';
-          this.filtrar(cat);
+          const buscar = params['buscar'] || '';
+          if (buscar) {
+            this.productosFiltrados = this.productos.filter(p =>
+              p.nombre.toLowerCase().includes(buscar.toLowerCase()) ||
+              p.descripcion.toLowerCase().includes(buscar.toLowerCase()) ||
+              p.categoria.toLowerCase().includes(buscar.toLowerCase())
+            );
+            this.categoriaActiva = 'todos';
+            this.terminoBusqueda = buscar;
+          } else {
+            this.filtrar(cat);
+          }
         });
         this.cargando = false;
       },
@@ -48,6 +60,7 @@ export class CartaComponent implements OnInit {
 
   filtrar(categoria: string) {
     this.categoriaActiva = categoria;
+    this.terminoBusqueda = '';
     this.productosFiltrados = categoria === 'todos'
       ? this.productos
       : this.productos.filter(p => p.categoria === categoria);
@@ -57,6 +70,12 @@ export class CartaComponent implements OnInit {
     this.carritoService.agregar(producto);
     this.mensajeAdd = `${producto.nombre} añadido al carrito`;
     setTimeout(() => this.mensajeAdd = '', 2000);
+  }
+
+  limpiarBusqueda() {
+    this.terminoBusqueda = '';
+    this.productosFiltrados = this.productos;
+    this.categoriaActiva = 'todos';
   }
 
   getImagenUrl(imagen: string | null): string {
