@@ -6,3 +6,4 @@ from .reserva_serializer import ReservaSerializer
 from .pedido_serializer import PedidoSerializer, LineaPedidoSerializer
 from .mensaje_serializer import MensajeSerializer
 from .evento_serializer import EventoSerializer, InscripcionEventoSerializer
+from .productor_serializer import ProductorSerializer

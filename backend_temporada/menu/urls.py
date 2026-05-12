@@ -4,7 +4,7 @@ from menu.views import (
     ProductoViewSet, CarritoViewSet,
     RegisterView, LoginView,
     ReservaViewSet, PedidoViewSet, MensajeViewSet,
-    EventoViewSet
+    EventoViewSet, ProductorViewSet
 )
 
 router = DefaultRouter()
@@ -14,6 +14,7 @@ router.register(r'reservas', ReservaViewSet, basename='reservas')
 router.register(r'pedidos', PedidoViewSet, basename='pedidos')
 router.register(r'mensajes', MensajeViewSet, basename='mensajes')
 router.register(r'eventos', EventoViewSet, basename='eventos')
+router.register(r'productores', ProductorViewSet, basename='productores')
 
 urlpatterns = [
     path('', include(router.urls)),

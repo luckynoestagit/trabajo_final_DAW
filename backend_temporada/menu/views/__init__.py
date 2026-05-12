@@ -6,3 +6,4 @@ from .reserva_view import ReservaViewSet
 from .pedido_view import PedidoViewSet
 from .mensaje_view import MensajeViewSet
 from .evento_view import EventoViewSet
+from .productor_view import ProductorViewSet
