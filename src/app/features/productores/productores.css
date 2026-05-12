@@ -1,82 +1,107 @@
-.productores {
-  padding: 60px 36px 120px;
+.productores { padding: 60px 36px 120px; }
+.t-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b8d23; display: block; margin-bottom: 16px; }
+.display-title { font-family: 'Fraunces', serif; font-size: clamp(48px, 6vw, 90px); line-height: 0.95; color: #6b8d23; margin: 0 0 24px; }
+.display-title em { color: #c9874a; font-style: italic; }
+.productores-lead { font-size: 18px; color: #4a4f3d; max-width: 600px; margin: 0 0 48px; line-height: 1.6; }
+.loading { text-align: center; padding: 40px; color: #6b8d23; font-family: 'Fraunces', serif; font-size: 18px; }
+
+.productores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.productor-card { background: #faf8f4; border: 1px solid rgba(107,141,35,0.2); border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.18s, box-shadow 0.18s; }
+.productor-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(107,141,35,0.1); }
+
+.productor-img { width: 100%; height: 220px; overflow: hidden; }
+.productor-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+.productor-card:hover .productor-img img { transform: scale(1.05); }
+
+.productor-body { padding: 24px; }
+.productor-body h3 { font-family: 'Fraunces', serif; font-size: 24px; color: #6b8d23; margin: 0 0 6px; }
+.productor-tipo { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #a66b34; display: block; margin-bottom: 14px; }
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,29,20,0.5);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
 }
 
-.t-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #6b8d23;
-  display: block;
-  margin-bottom: 16px;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.display-title {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(48px, 6vw, 90px);
-  line-height: 0.95;
-  color: #6b8d23;
-  margin: 0 0 24px;
-}
-
-.display-title em {
-  color: #c9874a;
-  font-style: italic;
-}
-
-.productores-lead {
-  font-size: 18px;
-  color: #4a4f3d;
-  max-width: 600px;
-  margin: 0 0 48px;
-  line-height: 1.6;
-}
-
-.productores-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.productor-card {
+.modal-card {
   background: #faf8f4;
-  border: 1px solid rgba(107, 141, 35, 0.2);
-  border-radius: 8px;
-  padding: 32px;
-  transition: transform 0.18s, box-shadow 0.18s;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 700px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: scaleIn 0.25s ease;
 }
 
-.productor-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(107, 141, 35, 0.1);
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.productor-icon {
-  font-size: 36px;
-  margin-bottom: 16px;
-}
-
-.productor-card h3 {
-  font-family: 'Fraunces', serif;
-  font-size: 24px;
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 2;
   color: #6b8d23;
-  margin: 0 0 6px;
+  transition: background 0.18s;
 }
 
-.productor-tipo {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #a66b34;
-  display: block;
-  margin-bottom: 14px;
+.modal-close:hover {
+  background: #6b8d23;
+  color: #fff;
 }
 
-.productor-card p {
+.modal-img {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+
+.modal-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-body {
+  padding: 32px;
+}
+
+.modal-body h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  color: #6b8d23;
+  margin: 8px 0 20px;
+}
+
+.modal-body p {
   color: #4a4f3d;
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.7;
   margin: 0;
+  white-space: pre-line;
 }
+
+.empty-msg { color: #4a4f3d; font-size: 16px; padding: 40px 0; }

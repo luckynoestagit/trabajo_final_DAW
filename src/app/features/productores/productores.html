@@ -3,47 +3,41 @@
   <h1 class="display-title">Del campo<br/><em>a tu mesa</em>.</h1>
   <p class="productores-lead">Trabajamos con productores locales que cuidan la tierra y respetan los ciclos naturales. Cada ingrediente tiene nombre y apellido.</p>
 
+  @if (cargando) {
+    <div class="loading">Cargando productores...</div>
+  }
+
+  @if (productorAbierto) {
+    <div class="modal-overlay" (click)="cerrarProductor()">
+      <div class="modal-card" (click)="$event.stopPropagation()">
+        <button class="modal-close" (click)="cerrarProductor()">✕</button>
+        <div class="modal-img">
+          <img [src]="getImagenUrl(productorAbierto.imagen)" [alt]="productorAbierto.nombre">
+        </div>
+        <div class="modal-body">
+          <span class="productor-tipo">{{ productorAbierto.tipo }} · {{ productorAbierto.ubicacion }}</span>
+          <h2>{{ productorAbierto.nombre }}</h2>
+          <p>{{ productorAbierto.descripcion }}</p>
+        </div>
+      </div>
+    </div>
+  }
+
   <div class="productores-grid">
-    <article class="productor-card">
-      <div class="productor-icon">🌾</div>
-      <h3>Finca El Olivar</h3>
-      <span class="productor-tipo">Aceite de oliva · Jaén</span>
-      <p>Aceite virgen extra de cosecha temprana. Familia Rodríguez, tercera generación de olivareros en Sierra de Cazorla.</p>
-    </article>
-
-    <article class="productor-card">
-      <div class="productor-icon">🧀</div>
-      <h3>Quesería Artesana Montbrú</h3>
-      <span class="productor-tipo">Quesos · Catalunya</span>
-      <p>Quesos de cabra y oveja con leche cruda. Maduración natural en cuevas de la comarca del Bages.</p>
-    </article>
-
-    <article class="productor-card">
-      <div class="productor-icon">🍷</div>
-      <h3>Bodega Cal Pla</h3>
-      <span class="productor-tipo">Vinos naturales · Priorat</span>
-      <p>Vinos biodinámicos de garnacha y cariñena. Viñedos en terrazas de pizarra con más de 80 años.</p>
-    </article>
-
-    <article class="productor-card">
-      <div class="productor-icon">🥬</div>
-      <h3>Huerta de Pau</h3>
-      <span class="productor-tipo">Verduras · Maresme</span>
-      <p>Agricultura ecológica a 30km del restaurante. Tomates, pimientos y lechugas que recogemos cada mañana.</p>
-    </article>
-
-    <article class="productor-card">
-      <div class="productor-icon">🐟</div>
-      <h3>Pesca Artesanal Roses</h3>
-      <span class="productor-tipo">Pescado · Costa Brava</span>
-      <p>Pesca del día con artes tradicionales. Lubina, dorada y gambas de la bahía de Roses.</p>
-    </article>
-
-    <article class="productor-card">
-      <div class="productor-icon">🍞</div>
-      <h3>Obrador La Miga</h3>
-      <span class="productor-tipo">Pan · Barcelona</span>
-      <p>Pan de masa madre con harinas de trigo antiguo. Fermentación lenta de 48 horas.</p>
-    </article>
+    @for (p of productores; track p.id) {
+      <article class="productor-card" (click)="abrirProductor(p)">
+        <div class="productor-img">
+          <img [src]="getImagenUrl(p.imagen)" [alt]="p.nombre">
+        </div>
+        <div class="productor-body">
+          <h3>{{ p.nombre }}</h3>
+          <span class="productor-tipo">{{ p.tipo }} · {{ p.ubicacion }}</span>
+        </div>
+      </article>
+    }
   </div>
+
+  @if (!cargando && productores.length === 0) {
+    <p class="empty-msg">No hay productores disponibles de momento.</p>
+  }
 </section>
