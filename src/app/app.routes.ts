@@ -27,6 +27,18 @@ export const routes: Routes = [
         loadComponent: () => import('./features/carrito/carrito').then(c => c.CarritoComponent)
       },
       {
+        path: 'pedido',
+        loadComponent: () => import('./features/pedido/pedido').then(c => c.PedidoComponent)
+      },
+      {
+        path: 'eventos',
+        loadComponent: () => import('./features/eventos/eventos').then(c => c.EventosComponent)
+      },
+      {
+        path: 'productores',
+        loadComponent: () => import('./features/productores/productores').then(c => c.ProductoresComponent)
+      },
+      {
         path: 'reservar',
         loadComponent: () => import('./features/reservar/reservar').then(c => c.ReservarComponent)
       },

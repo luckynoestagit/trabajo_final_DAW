@@ -54,6 +54,6 @@ export class CarritoComponent {
   }
 
   irACheckout() {
-    this.router.navigate(['/cuenta']);
+    this.router.navigate(['/pedido']);
   }
 }

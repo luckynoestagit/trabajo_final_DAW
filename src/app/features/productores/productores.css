@@ -1,0 +1,82 @@
+.productores {
+  padding: 60px 36px 120px;
+}
+
+.t-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b8d23;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.display-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(48px, 6vw, 90px);
+  line-height: 0.95;
+  color: #6b8d23;
+  margin: 0 0 24px;
+}
+
+.display-title em {
+  color: #c9874a;
+  font-style: italic;
+}
+
+.productores-lead {
+  font-size: 18px;
+  color: #4a4f3d;
+  max-width: 600px;
+  margin: 0 0 48px;
+  line-height: 1.6;
+}
+
+.productores-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.productor-card {
+  background: #faf8f4;
+  border: 1px solid rgba(107, 141, 35, 0.2);
+  border-radius: 8px;
+  padding: 32px;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.productor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(107, 141, 35, 0.1);
+}
+
+.productor-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.productor-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  color: #6b8d23;
+  margin: 0 0 6px;
+}
+
+.productor-tipo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a66b34;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.productor-card p {
+  color: #4a4f3d;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+}
