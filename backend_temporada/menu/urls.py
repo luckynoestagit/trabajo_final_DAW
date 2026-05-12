@@ -3,7 +3,8 @@ from rest_framework.routers import DefaultRouter
 from menu.views import (
     ProductoViewSet, CarritoViewSet,
     RegisterView, LoginView,
-    ReservaViewSet, PedidoViewSet, MensajeViewSet
+    ReservaViewSet, PedidoViewSet, MensajeViewSet,
+    EventoViewSet
 )
 
 router = DefaultRouter()
@@ -12,6 +13,7 @@ router.register(r'carrito', CarritoViewSet, basename='carrito')
 router.register(r'reservas', ReservaViewSet, basename='reservas')
 router.register(r'pedidos', PedidoViewSet, basename='pedidos')
 router.register(r'mensajes', MensajeViewSet, basename='mensajes')
+router.register(r'eventos', EventoViewSet, basename='eventos')
 
 urlpatterns = [
     path('', include(router.urls)),

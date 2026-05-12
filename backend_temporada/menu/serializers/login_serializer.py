@@ -39,6 +39,7 @@ class LoginSerializer(serializers.Serializer):
                 'nombre': cliente.nombre,
                 'email': cliente.email,
                 'telefono': cliente.telefono,
+                'direccion': cliente.direccion,
                 'refreshToken': str(refresh),
                 'token': str(refresh.access_token)
             }
