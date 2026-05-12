@@ -61,11 +61,11 @@
         <h3 class="pedido__h3" style="margin-top: 32px">Método de pago</h3>
         <div class="pago-btns">
           <button [class.is-on]="datos.metodo_pago === 'paypal'"
-                  (click)="datos.metodo_pago = 'paypal'">
+                  (click)="datos.metodo_pago = 'paypal'; paypalVisible = false; paypalRendered = false;">
             PayPal
           </button>
           <button [class.is-on]="datos.metodo_pago === 'tarjeta'"
-                  (click)="datos.metodo_pago = 'tarjeta'">
+                  (click)="datos.metodo_pago = 'tarjeta'; paypalVisible = false;">
             Tarjeta de crédito
           </button>
         </div>
@@ -78,6 +78,13 @@
         @if (errorMsg) {
           <div class="error-general">
             <i class="bi bi-exclamation-circle"></i> {{ errorMsg }}
+          </div>
+        }
+
+        @if (datos.metodo_pago === 'paypal' && paypalVisible) {
+          <div class="paypal-container">
+            <span class="t-tag">Pagar con PayPal</span>
+            <div id="paypal-button-container"></div>
           </div>
         }
       </div>
@@ -95,7 +102,14 @@
           <span>Total</span>
           <strong>{{ total.toFixed(2) }}€</strong>
         </div>
-        <button class="btn-primary" (click)="confirmarPedido()">Confirmar y pagar →</button>
+
+        @if (datos.metodo_pago === 'paypal') {
+          @if (!paypalVisible) {
+            <button class="btn-primary" (click)="mostrarPaypal()">Pagar con PayPal →</button>
+          }
+        } @else {
+          <button class="btn-primary" (click)="confirmarTarjeta()">Confirmar y pagar →</button>
+        }
       </aside>
     </div>
   </section>

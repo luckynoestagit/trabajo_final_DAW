@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MensajeService } from '../../services/mensaje.service';
+
+declare let L: any;
 
 @Component({
   selector: 'app-contacto',
@@ -10,7 +12,7 @@ import { MensajeService } from '../../services/mensaje.service';
   templateUrl: './contacto.html',
   styleUrl: './contacto.css'
 })
-export class ContactoComponent {
+export class ContactoComponent implements AfterViewInit {
   enviado = false;
   errorMsg = '';
   form: FormGroup;
@@ -23,6 +25,19 @@ export class ContactoComponent {
       asunto: ['', Validators.required],
       mensaje: ['', [Validators.required, Validators.minLength(10)]]
     });
+  }
+
+  ngAfterViewInit() {
+    const map = L.map('mapa').setView([41.3818, 2.1685], 16);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    L.marker([41.3818, 2.1685])
+      .addTo(map)
+      .bindPopup('<strong>Temporada</strong><br>C/ Major 42, Barcelona')
+      .openPopup();
   }
 
   enviar() {
