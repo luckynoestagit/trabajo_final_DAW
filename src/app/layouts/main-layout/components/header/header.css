@@ -1,7 +1,22 @@
 .header {
   background-color: #f3f1ee;
   padding: 12px 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999; /* para que quede por encima */
 }
+
+.logo-text {
+  font-family: 'Fraunces', serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #6b8d23;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
 
 .img-logo {
   width: 100%;

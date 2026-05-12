@@ -1,146 +1,157 @@
 .footer {
   background-color: var(--color-primary);
-  padding: 80px 40px 60px;
-  text-align: left;
+  padding: 80px 24px 40px;
 }
 
-/* Logotipo web */
-.footer-logo {
-  max-width: 400px;
-  margin-bottom: 40px;
+.footer, .footer * {
+  color: #fff;
 }
 
-/* Texto principal en grande */
-.footer-intro {
-  font-size: 28px;
-  line-height: 1.8;
+/* Fila 1 — Logo + texto */
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
   margin-bottom: 60px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: white !important;
-}
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.16);
-  padding: 24px 0 32px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  opacity: 0.7;
-  margin-top: 48px;
 }
 
-/* Sección de newsletter */
-.newsletter-section {
-  margin-bottom: 50px;
+.logo-text {
+  font-family: 'Fraunces', serif;
+  font-size: 120px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
-.footer h3 {
+.footer-intro {
+  font-size: 35px;
+  line-height: 1.8;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Fila 2 — Newsletter + enlaces */
+.footer-bottom-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.footer-left h3 {
+  font-family: 'Fraunces', serif;
   font-size: 42px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: white;
+  font-weight: 600;
+  margin: 0 0 12px;
 }
 
-.footer .newsletter-subtitle {
-  font-size: 18px;
-  margin-bottom: 30px;
-  color: white;
+.footer-left p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin: 0 0 20px;
 }
 
-/* formulario */
 .newsletter-form {
   display: flex;
-  gap: 0;
-  margin: 0 auto;
-  max-width: 500px;
-  justify-content: center;
+  max-width: 400px;
 }
 
 .email-input {
   flex: 1;
-  padding: 15px 20px;
+  padding: 14px 18px;
   border: none;
   border-radius: 4px 0 0 4px;
-  font-size: 18px;
-  background-color: white;
+  font-size: 16px;
+  background: #fff;
+  color: #1a1d14;
 }
 
 .subscribe-btn {
-  padding: 15px 30px;
-  color: var(--color-primary) !important;
+  padding: 14px 24px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
   border: none;
   border-radius: 0 4px 4px 0;
+  font-size: 16px;
   font-weight: 600;
-  font-size: 18px;
   cursor: pointer;
-  transition: opacity 0.3s;
+  transition: background 0.18s;
 }
 
 .subscribe-btn:hover {
-  opacity: 0.9;
+  background: rgba(255,255,255,0.3);
 }
 
-/* Columnas de los enlaces */
-.footer-links {
-  margin-top: 50px;
+/* Columnas de enlaces */
+.footer-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
 }
 
-.footer h4 {
+.footer-col h4 {
+  font-family: 'Fraunces', serif;
   font-size: 22px;
   font-weight: 600;
-  margin-bottom: 25px;
-  color: white;
+  margin: 0 0 20px;
 }
 
-.footer ul {
+.footer-col ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.footer ul li {
-  margin-bottom: 15px;
+.footer-col ul li {
+  margin-bottom: 12px;
 }
 
-.footer ul li a {
-  color: white;
-  text-decoration: none;
+.footer-col ul li a {
   font-size: 18px;
-  transition: opacity 0.3s;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.18s;
 }
 
-.footer ul li a:hover {
-  opacity: 0.7;
+.footer-col ul li a:hover {
+  opacity: 1;
 }
 
-.footer .row * {
-  color: white !important;
+/* Copyright */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.16);
+  padding: 24px 0 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 48px;
 }
 
-
-/* apartado responsive */
+/* Responsive */
 @media (max-width: 768px) {
-  .footer h3 {
+  .footer-top,
+  .footer-bottom-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .logo-text {
+    font-size: 60px;
+  }
+
+  .footer-right {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-left h3 {
     font-size: 32px;
   }
 
   .footer-intro {
-    font-size: 16px;
-  }
-
-  .newsletter-form {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .email-input,
-  .subscribe-btn {
-    border-radius: 4px;
-  }
-
-  .footer h4 {
-    margin-top: 30px;
+    font-size: 18px;
   }
 }
-

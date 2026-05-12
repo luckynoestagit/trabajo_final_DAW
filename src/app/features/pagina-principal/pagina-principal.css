@@ -2,7 +2,8 @@
 .header-imgs img {
   width: 100%;
   object-fit: cover;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 3 / 3.5;
+
 }
 
 /* Texto marquee */
@@ -30,7 +31,8 @@
 
 /* Salas */
 .salas-section {
-  padding: 24px 160px;
+  padding: 120px ;
+
 }
 
 .salas-grid {
@@ -42,8 +44,9 @@
 
 .sala-card {
   position: relative;
-  overflow: hidden;
+  padding: 8px;
   cursor: pointer;
+
 }
 
 .sala-img {
@@ -51,20 +54,21 @@
   height: auto;
   display: block;
   transition: transform 0.4s ease;
+
 }
 
 .sala-card:hover .sala-img {
-  transform: scale(1.03);
+  transform: scale(1.06);
 }
 
 .sala-info {
-  position: absolute;
+  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 20px;
-  background: linear-gradient(to top, rgba(26,29,20,0.6), transparent);
-  color: #fff;
+
+
 }
 
 .sala-num {
@@ -112,7 +116,8 @@ a {
 }
 
 .home-hero {
-  padding: 60px 0 60px;
+
+  padding: 100px 0 60px;
   position: relative;
   overflow: visible;
 }
@@ -188,6 +193,8 @@ a {
 .home-hero__right {
   position: relative;
   aspect-ratio: 3/4;
+  margin-top: -120px;
+
 }
 
 .home-hero__img {
@@ -227,5 +234,91 @@ a {
   line-height: 1;
   margin: 4px 0;
   font-family: 'Fraunces', serif;
+}
+/* HERO RESPONSIVE */
+
+@media (max-width: 992px) {
+  .home-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .home-hero {
+    padding: 40px 0 60px;
+  }
+
+  .home-hero__title {
+    font-size: clamp(42px, 10vw, 72px);
+  }
+
+  .home-hero__lead {
+    font-size: 17px;
+    max-width: 100%;
+  }
+
+  .home-hero__meta {
+    gap: 24px;
+    font-size: 10px;
+  }
+
+  .home-hero__right {
+    aspect-ratio: auto;
+    height: 420px;
+  }
+
+  .home-hero__img {
+    border-radius: 200px 200px 14px 14px;
+  }
+
+  .home-hero__stamp {
+    width: 120px;
+    height: 120px;
+    top: -18px;
+    right: -18px;
+  }
+
+  .home-hero__stamp .display {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-hero {
+    padding: 32px 0 48px;
+  }
+
+  .home-hero__title {
+    font-size: clamp(32px, 12vw, 56px);
+    line-height: 1;
+  }
+
+  .home-hero__lead {
+    font-size: 16px;
+  }
+
+  .home-hero__ctas {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .home-hero__right {
+    height: 360px;
+  }
+
+  .home-hero__img {
+    border-radius: 160px 160px 12px 12px;
+  }
+
+  .home-hero__stamp {
+    width: 100px;
+    height: 100px;
+    top: -12px;
+    right: -12px;
+    transform: rotate(-6deg);
+  }
+
+  .home-hero__stamp .display {
+    font-size: 20px;
+  }
 }
 

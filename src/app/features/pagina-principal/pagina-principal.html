@@ -1,82 +1,85 @@
-<section class="home-hero container">
-  <div class="home-hero__grid">
 
-    <!-- Lado izquierdo -->
-    <div class="home-hero__left">
+  <section class="home-hero container">
+    <div class="home-hero__grid">
 
-      <h1 class="display home-hero__title">
-        Del campo<br><em>a tu mesa</em>,<br>temporada<br>tras temporada.
-      </h1>
+      <!-- Lado izquierdo -->
+      <div class="home-hero__left">
 
-      <p class="home-hero__lead">
-        Cocina de mercado honesta, con productos de pequeños productores de la zona.
-        Abrimos la carta cada tres meses al ritmo de la tierra.
-      </p>
+        <h1 class="display home-hero__title">
+          Del campo<br><em>a tu mesa</em>,<br>temporada<br>tras temporada.
+        </h1>
 
-      <div class="home-hero__ctas">
-        <button class=" menu-reservar" (click)="irAReservar('general')">Reservar mesa</button>
+        <p class="home-hero__lead">
+          Cocina de mercado honesta, con productos de pequeños productores de la zona.
+          Abrimos la carta cada tres meses al ritmo de la tierra.
+        </p>
 
+        <div class="home-hero__ctas">
+          <button class=" menu-reservar" (click)="irAReservar('general')">Reservar mesa</button>
+
+        </div>
+
+        <div class="home-hero__meta mono">
+          <div><strong>42°</strong> — Aforo<br><em>Reservado hasta 14 Jun</em></div>
+          <div><strong>4.8</strong> · 312 reseñas<br><em>Google · Tripadvisor</em></div>
+        </div>
       </div>
 
-      <div class="home-hero__meta mono">
-        <div><strong>42°</strong> — Aforo<br><em>Reservado hasta 14 Jun</em></div>
-        <div><strong>4.8</strong> · 312 reseñas<br><em>Google · Tripadvisor</em></div>
+      <!-- Lado derecho -->
+      <div class="home-hero__right">
+        <div class="home-hero__img"
+             style="background-image: url('assets/img/temporada2.jpg');">
+        </div>
+
+        <div class="home-hero__stamp">
+          <span class="mono">Nº 04</span>
+          <span class="display">Primavera</span>
+          <span class="mono">2026</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="header-imgs">
+    <div class="row row-cols-3 g-0">
+      <div class="col col-sm p-0">
+        <img src="assets/img/platos.jpg" class="img-fluid" alt="Imagen1">
+      </div>
+      <div class="col col-sm p-0">
+        <img src="assets/img/manostrabajador.jpg" class="img-fluid" alt="Imagen 2">
+      </div>
+      <div class="col col-sm p-0">
+        <img src="assets/img/berenjena.jpg" class="img-fluid" alt="Imagen 3">
       </div>
     </div>
 
-    <!-- Lado derecho -->
-    <div class="home-hero__right">
-      <div class="home-hero__img"
-           style="background-image: url('assets/img/temporada2.jpg');">
-      </div>
-
-      <div class="home-hero__stamp">
-        <span class="mono">Nº 04</span>
-        <span class="display">Primavera</span>
-        <span class="mono">2026</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="header-imgs">
-  <div class="row row-cols-3 g-0">
-    <div class="col col-sm p-0">
-      <img src="assets/img/cocinatrabajo.png" class="img-fluid" alt="Imagen1">
-    </div>
-    <div class="col col-sm p-0">
-      <img src="assets/img/manostrabajador.jpg" class="img-fluid" alt="Imagen 2">
-    </div>
-    <div class="col col-sm p-0">
-      <img src="assets/img/cocina.jpg" class="img-fluid" alt="Imagen 3">
-    </div>
-  </div>
-</div>
-
-<div class="scroll-container g-0">
-  <div class="scroll-text g-0">
-    <h2>PRODUCTO LOCAL * CADA ESTACIÓN CUENTA · DEL CAMPO A TU MESA * TEMPORADA TRAS TEMPORADA *</h2>
-  </div>
-</div>
-
-<div class="salas-section">
-  <div class="salas-grid">
-    <div class="sala-card" (click)="irAReservar('principal')">
-      <img src="assets/img/sala-principal.jpg" class="sala-img" alt="Sala principal">
-      <div class="sala-info">
-        <span class="sala-num">01 · Nuestra sala, C/ Major 42</span>
-      </div>
-    </div>
-    <div class="sala-card" (click)="irAReservar('terraza')">
-      <img src="assets/img/terraza-interior.jpg" class="sala-img" alt="Terraza interior">
-      <div class="sala-info">
-        <span class="sala-num">02 · Terraza interior</span>
+    <div class="scroll-container g-0">
+      <div class="scroll-text g-0">
+        <h2>PRODUCTO LOCAL * CADA ESTACIÓN CUENTA · DEL CAMPO A TU MESA * TEMPORADA TRAS TEMPORADA *</h2>
       </div>
     </div>
   </div>
-</div>
 
-<app-products></app-products>
 
-<app-newnewsletter-section></app-newnewsletter-section>
+
+  <div class="salas-section">
+    <div class="salas-grid">
+      <div class="sala-card" (click)="irAReservar('principal')">
+        <img src="assets/img/sala-principal.jpg" class="sala-img" alt="Sala principal">
+        <div class="sala-info">
+          <span class="sala-num">01 · Nuestra sala, C/ Major 42</span>
+        </div>
+      </div>
+      <div class="sala-card" (click)="irAReservar('terraza')">
+        <img src="assets/img/terraza-interior.jpg" class="sala-img" alt="Terraza interior">
+        <div class="sala-info">
+          <span class="sala-num">02 · Terraza interior</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-products></app-products>
+
+  <app-newnewsletter-section></app-newnewsletter-section>
