@@ -155,3 +155,25 @@
     font-size: 18px;
   }
 }
+.suscrito-msg {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  color: #fff;
+  margin-top: 12px;
+}
+
+.suscrito-error {
+  font-size: 13px;
+  color: #ffcccc;
+  margin-top: 8px;
+}
+
+.email-input {
+  flex: 1;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
+  background: #fff;
+  color: #1a1d14 !important;
+}
