@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: #f3f1ee;
+  background: rgba(243, 241, 238, 0.7);
   cursor: pointer;
   overflow: hidden;
 }
