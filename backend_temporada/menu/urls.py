@@ -4,7 +4,7 @@ from menu.views import (
     ProductoViewSet, CarritoViewSet,
     RegisterView, LoginView,
     ReservaViewSet, PedidoViewSet, MensajeViewSet,
-    EventoViewSet, ProductorViewSet
+    EventoViewSet, ProductorViewSet, SuscriptorView
 )
 
 router = DefaultRouter()
@@ -20,4 +20,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('registro/', RegisterView.as_view(), name='register'),
     path('login/', LoginView.as_view(), name='login'),
+    path('suscribir/', SuscriptorView.as_view(), name='suscribir'),
 ]

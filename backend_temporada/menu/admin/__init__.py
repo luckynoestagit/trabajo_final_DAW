@@ -6,3 +6,4 @@ from .pedido_admin import *
 from .mensaje_admin import *
 from .evento_admin import *
 from .productor_admin import *
+from .suscriptor_admin import *
