@@ -1,2 +1,0 @@
-SECRET_KEY=clave_super_secreta_123456789
-DEBUG=True
