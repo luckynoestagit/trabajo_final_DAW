@@ -21,7 +21,7 @@ class PedidoSerializer(serializers.ModelSerializer):
             'estado', 'total', 'observaciones',
             'fecha_creacion', 'lineas', 'lineas_data'
         ]
-        read_only_fields = ['estado', 'fecha_creacion']
+        read_only_fields = ['fecha_creacion']
 
     def create(self, validated_data):
         lineas_data = validated_data.pop('lineas_data', [])
