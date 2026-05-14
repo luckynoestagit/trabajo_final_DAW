@@ -128,6 +128,7 @@ export class PedidoComponent implements AfterViewChecked {
     const pedidoData = {
       ...this.datos,
       total: this.total,
+      estado: estado,
       lineas_data: this.items.map(i => ({
         producto_id: i.producto.id,
         cantidad: i.cantidad

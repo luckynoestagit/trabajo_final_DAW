@@ -9,6 +9,26 @@ export interface ItemCarrito {
 @Injectable({ providedIn: 'root' })
 export class CarritoLocalService {
   private items: ItemCarrito[] = [];
+  private STORAGE_KEY = 'temporada_carrito';
+
+  constructor() {
+    this.cargarDesdeStorage();
+  }
+
+  private cargarDesdeStorage() {
+    const data = localStorage.getItem(this.STORAGE_KEY);
+    if (data) {
+      try {
+        this.items = JSON.parse(data);
+      } catch {
+        this.items = [];
+      }
+    }
+  }
+
+  private guardarEnStorage() {
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.items));
+  }
 
   getItems(): ItemCarrito[] {
     return this.items;
@@ -21,10 +41,12 @@ export class CarritoLocalService {
     } else {
       this.items.push({ producto, cantidad: 1 });
     }
+    this.guardarEnStorage();
   }
 
   quitar(productoId: number) {
     this.items = this.items.filter(i => i.producto.id !== productoId);
+    this.guardarEnStorage();
   }
 
   cambiarCantidad(productoId: number, cantidad: number) {
@@ -34,6 +56,7 @@ export class CarritoLocalService {
         this.quitar(productoId);
       } else {
         item.cantidad = cantidad;
+        this.guardarEnStorage();
       }
     }
   }
@@ -48,5 +71,6 @@ export class CarritoLocalService {
 
   vaciar() {
     this.items = [];
+    localStorage.removeItem(this.STORAGE_KEY);
   }
 }
