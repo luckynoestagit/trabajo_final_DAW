@@ -291,7 +291,39 @@
 }
 
 .error-msg {
-  color: #8b3a1f;
+  color: rgba(107, 142, 35, 0.5);
   font-size: 14px;
   margin-top: 8px;
+}
+
+.error-box {
+  background-color: rgba(253, 110, 60, 0.08);
+  color: #6b8e23;
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 4px solid #c9874a;
+  margin: 15px 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.animate-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.error-text-inline {
+  color: #c9874a;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.input-error {
+  border-color: rgb(201, 135, 74) !important;
+  background-color: #fffafa !important;
 }
