@@ -20,8 +20,7 @@ class Pedido(models.Model):
         ('paypal', 'PayPal'),
         ('tarjeta', 'Tarjeta de crédito'),
     ]
-
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, related_name='pedidos', null=True, blank=True)
+    cliente = models.ForeignKey(Cliente, on_delete=models.SET_NULL, related_name='pedidos', null=True, blank=True)
     nombre_cliente = models.CharField(max_length=100)
     email_cliente = models.EmailField(max_length=100)
     telefono_cliente = models.CharField(max_length=20)
@@ -45,7 +44,7 @@ class Pedido(models.Model):
 
 class LineaPedido(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE, related_name='lineas')
-    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Producto, on_delete=models.SET_NULL, null=True, blank=True)
     cantidad = models.PositiveIntegerField(default=1)
     precio_unitario = models.DecimalField(max_digits=6, decimal_places=2)
 

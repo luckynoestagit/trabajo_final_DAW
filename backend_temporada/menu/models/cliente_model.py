@@ -7,7 +7,7 @@ class Cliente(models.Model):
 
     nombre = models.CharField(max_length=100, blank=False, null=False, verbose_name='Nombre Cliente')
     apellidos = models.CharField(max_length=100, blank=False, null=False, verbose_name='Apellido Cliente')
-    email = models.EmailField(max_length=100, blank=False, null=False, verbose_name='Email Cliente')
+    email = models.EmailField(max_length=100, blank=False, null=False, unique=True, verbose_name='Email Cliente')
     edad = models.IntegerField(blank=False, null=False, verbose_name='Edad', validators=[MinValueValidator(18)], help_text='Debe ser mayor que 18')
     slug = models.SlugField(max_length=100,unique=True, verbose_name='Slug Cliente') # identificador generado mas seguro != no aparece en la url id
     telefono = models.CharField(max_length=100, blank=False, null=False, verbose_name='Telefono')

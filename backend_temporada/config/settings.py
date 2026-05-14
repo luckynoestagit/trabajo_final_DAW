@@ -95,3 +95,14 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = ASSETS_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# --- EMAIL CONFIG --- #
+
+DEFAULT_FROM_EMAIL = "no-reply@temporada.com"
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"          # o tu proveedor
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "tu-correo@gmail.com"
+EMAIL_HOST_PASSWORD = "tu-password"

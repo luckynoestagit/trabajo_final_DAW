@@ -11,8 +11,7 @@ class Reserva(models.Model):
         ('principal', 'Sala principal'),
         ('terraza', 'Terraza interior'),
     ]
-
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, related_name='reservas', null=True, blank=True)
+    cliente = models.ForeignKey(Cliente, on_delete=models.SET_NULL, related_name='reservas', null=True, blank=True)
     nombre_cliente = models.CharField(max_length=100)
     email_cliente = models.EmailField(max_length=100)
     telefono_cliente = models.CharField(max_length=20)

@@ -1,7 +1,4 @@
-from sys import activate_stack_trampoline
-
 from django.conf import settings
-from django.views.static import directory_index
 from rest_framework import serializers
 from menu.models import Cliente
 
