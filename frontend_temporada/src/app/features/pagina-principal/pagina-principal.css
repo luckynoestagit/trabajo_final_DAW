@@ -1,13 +1,13 @@
-/*images cabecera*/
-.header-imgs img{
+/* Imágenes cabecera */
+.header-imgs img {
   width: 100%;
   object-fit: cover;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 3 / 3.5;
+
 }
 
-/* texto de punta a punta*/
+/* Texto marquee */
 .scroll-container {
-
   overflow: hidden;
   white-space: nowrap;
   background-color: #ffffff;
@@ -15,59 +15,310 @@
 }
 
 .scroll-text h2 {
-  font-family:Arial, Helvetica, sans-serif ;
+  font-family: 'arial', serif;
   display: inline-block;
   color: var(--color-primary);
-  font-size: 100px;
+  font-size: 60px;
   font-weight: 400;
   margin: 0;
   animation: scroll 30s linear infinite;
 }
 
-
-/*animacion texto*/
 @keyframes scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
+/* Salas */
+.salas-section {
+  padding: 120px ;
 
-/*imagenes*/
-.img-restaurants{
+}
+
+.salas-grid {
+  display: grid;
+  grid-template-columns: 0.3fr 0.3fr;
+  gap: 0;
+  justify-content: center;
+}
+
+.sala-card {
+  position: relative;
+  padding: 8px;
+  cursor: pointer;
+
+}
+
+.sala-img {
   width: 100%;
-  object-fit: cover;
-
-}
-.img-restaurants img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-
-  /*lista de productos*/
-.lista-menu ul{
-  font-size: 60px;
-  list-style: none;
-  margin: 45px;
-  padding: 0;
-  text-align: center;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
 
 }
 
-.lista-menu ul li a {
-  color: inherit;
-  text-decoration: none;
-  transition: font-family 0.2s ease; /*suaviza el tiempo */
+.sala-card:hover .sala-img {
+  transform: scale(1.06);
 }
 
-.lista-menu ul li a:hover {
-  font-family: Arial; /*cambia letra a otra*/
+.sala-info {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+
+
 }
 
+.sala-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.sala-info h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  margin: 0 0 4px;
+}
+
+.sala-info p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Links generales */
 a {
   color: inherit;
-  text-decoration: none; /*quitar el azul de las letras*/
+  text-decoration: none;
+}
+
+/* Inicio */
+
+.menu-reservar{
+  background: transparent;
+  border: 1px solid rgba(107,141,35,0.3);
+  color: #6b8d23;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.home-hero {
+
+  padding: 100px 0 60px;
+  position: relative;
+  overflow: visible;
+}
+
+.home-hero__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.home-hero__left .t-tag {
+  display: block;
+  margin-bottom: 28px;
+  color: #6b8e23; /* oliva */
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.home-hero__title {
+  font-size: clamp(64px, 8vw, 128px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: #6b8e23; /* oliva */
+  margin: 0 0 36px;
+  font-weight: 400;
+  font-family: 'Fraunces', serif;
+}
+
+.home-hero__title em {
+  font-style: italic;
+  color: #c8864a; /* ocre */
+}
+
+.home-hero__lead {
+  font-size: 19px;
+  line-height: 1.55;
+  max-width: 480px;
+  color: #6a6a6a; /* gris suave */
+  margin: 0 0 36px;
+  font-family: Arial, sans-serif;
+}
+
+.home-hero__ctas {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.home-hero__meta {
+  display: flex;
+  gap: 48px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6a6a6a; /* gris suave */
+  border-top: 1px dashed #6b8e23; /* línea oliva clara */
+  padding-top: 20px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.home-hero__meta strong {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  color: #6b8e23; /* oliva */
+  display: block;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.home-hero__right {
+  position: relative;
+  aspect-ratio: 3/4;
+  margin-top: -120px;
+
+}
+
+.home-hero__img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 280px 280px 18px 18px;
+}
+
+.home-hero__stamp {
+  position: absolute;
+  top: -26px;
+  right: -26px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #f1efed; /* ocre */
+  color: #8a8a8a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(-8deg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.home-hero__stamp .mono {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.home-hero__stamp .display {
+  font-size: 30px;
+  line-height: 1;
+  margin: 4px 0;
+  font-family: 'Fraunces', serif;
+}
+/* HERO RESPONSIVE */
+
+@media (max-width: 992px) {
+  .home-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .home-hero {
+    padding: 40px 0 60px;
+  }
+
+  .home-hero__title {
+    font-size: clamp(42px, 10vw, 72px);
+  }
+
+  .home-hero__lead {
+    font-size: 17px;
+    max-width: 100%;
+  }
+
+  .home-hero__meta {
+    gap: 24px;
+    font-size: 10px;
+  }
+
+  .home-hero__right {
+    aspect-ratio: auto;
+    height: 420px;
+  }
+
+  .home-hero__img {
+    border-radius: 200px 200px 14px 14px;
+  }
+
+  .home-hero__stamp {
+    width: 120px;
+    height: 120px;
+    top: -18px;
+    right: -18px;
+  }
+
+  .home-hero__stamp .display {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-hero {
+    padding: 32px 0 48px;
+  }
+
+  .home-hero__title {
+    font-size: clamp(32px, 12vw, 56px);
+    line-height: 1;
+  }
+
+  .home-hero__lead {
+    font-size: 16px;
+  }
+
+  .home-hero__ctas {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .home-hero__right {
+    height: 360px;
+  }
+
+  .home-hero__img {
+    border-radius: 160px 160px 12px 12px;
+  }
+
+  .home-hero__stamp {
+    width: 100px;
+    height: 100px;
+    top: -12px;
+    right: -12px;
+    transform: rotate(-6deg);
+  }
+
+  .home-hero__stamp .display {
+    font-size: 20px;
+  }
 }
 

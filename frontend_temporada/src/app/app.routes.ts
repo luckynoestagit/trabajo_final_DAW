@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,39 @@ export const routes: Routes = [
       {
         path: '',
         loadComponent: () => import('./features/pagina-principal/pagina-principal').then(c => c.PaginaPrincipal)
+      },
+      {
+        path: 'carta',
+        loadComponent: () => import('./features/carta/carta').then(c => c.CartaComponent)
+      },
+      {
+        path: 'carrito',
+        loadComponent: () => import('./features/carrito/carrito').then(c => c.CarritoComponent)
+      },
+      {
+        path: 'pedido',
+        loadComponent: () => import('./features/pedido/pedido').then(c => c.PedidoComponent)
+      },
+      {
+        path: 'eventos',
+        loadComponent: () => import('./features/eventos/eventos').then(c => c.EventosComponent)
+      },
+      {
+        path: 'productores',
+        loadComponent: () => import('./features/productores/productores').then(c => c.ProductoresComponent)
+      },
+      {
+        path: 'reservar',
+        loadComponent: () => import('./features/reservar/reservar').then(c => c.ReservarComponent)
+      },
+      {
+        path: 'contacto',
+        loadComponent: () => import('./features/contacto/contacto').then(c => c.ContactoComponent)
+      },
+      {
+        path: 'cuenta',
+        canActivate: [authGuard],
+        loadComponent: () => import('./features/cuenta/cuenta').then(c => c.CuentaComponent)
       }
     ]
   },

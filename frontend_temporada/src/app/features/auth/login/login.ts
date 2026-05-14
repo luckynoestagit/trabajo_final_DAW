@@ -1,9 +1,7 @@
-import {Component, model} from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
-
-type DatosDeEnvio = { email: string, password: string };
 
 @Component({
   selector: 'app-login',
@@ -14,7 +12,7 @@ type DatosDeEnvio = { email: string, password: string };
 })
 export class Login {
   formLogin: FormGroup;
-  onToggleRegister = model(undefined);
+  errorMessage: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,40 +20,45 @@ export class Login {
     private router: Router
   ) {
     this.formLogin = this.formBuilder.group({
-      "email": ["", [Validators.required, Validators.email, Validators.minLength(5)]],
-      "password": ["", [Validators.required, Validators.minLength(6)]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
   iniciarSesion() {
     if (this.formLogin.invalid) {
-      alert("Formulario no válido");
+      Object.keys(this.formLogin.controls).forEach(key => {
+        this.formLogin.get(key)?.markAsTouched();
+      });
       return;
     }
 
-    const datosParaEnviar: DatosDeEnvio = {
-      email: this.formLogin.value.email,
-      password: this.formLogin.value.password
-    };
-
-    this.authService.login(datosParaEnviar).subscribe({
+    this.authService.login(this.formLogin.value).subscribe({
       next: (response) => {
-        localStorage.setItem("temporada_token", response.data.token);
-        localStorage.setItem("temporada_refresh_token", response.data.refreshToken);
-
-        const datos: any = {
+        localStorage.setItem('temporada_token', response.data.token);
+        localStorage.setItem('temporada_refresh_token', response.data.refreshToken);localStorage.setItem('temporada_datos', JSON.stringify({
           email: response.data.email,
           nombre: response.data.nombre,
-          telefono: response.data.telefono
-        };
-        localStorage.setItem("temporada_datos", JSON.stringify(datos));
-
-        alert("Bienvenido " + response.data.nombre);
-        this.router.navigate(["/"]);
+          telefono: response.data.telefono,
+          direccion: response.data.direccion || ''
+        }));
+        this.router.navigate(['/cuenta']);
       },
       error: (err) => {
-        console.error(err);
-        alert("Error al iniciar sesión");
+        const errores = err.error;
+        if (errores && errores.non_field_errors) {
+          this.errorMessage = errores.non_field_errors[0];
+        } else if (errores && typeof errores === 'object') {
+          const campos = Object.keys(errores);
+          if (campos.length > 0) {
+            const msg = errores[campos[0]];
+            this.errorMessage = Array.isArray(msg) ? msg[0] : msg;
+          } else {
+            this.errorMessage = 'Email o contraseña incorrectos';
+          }
+        } else {
+          this.errorMessage = 'Email o contraseña incorrectos';
+        }
       }
     });
   }

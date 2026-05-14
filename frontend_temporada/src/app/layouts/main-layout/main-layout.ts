@@ -2,15 +2,24 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header';
 import { FooterComponent } from './components/footer/footer';
-import {NewnewsletterSection} from './components/newnewsletter-section/newnewsletter-section';
-import {Products} from './components/products/products';
+import { SplashComponent } from './components/splash/splash';
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, NewnewsletterSection,  Products],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, SplashComponent],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.css'
 })
+export class MainLayout {
+  showSplash = true;
 
-export class MainLayout {}
+  onEntrar() {
+    this.showSplash = false;
+    const audio = new Audio();
+    audio.src = 'assets/audio/musicadefondo.mp3';
+    audio.loop = true;
+    audio.volume = 0.3;
+    audio.play();
+  }
+}

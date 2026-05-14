@@ -1,38 +1,46 @@
-<div class="popup">
-  <div class="titulo">
-      <div class="d-flex justify-content-between ">
-        <div class="">
-          <ul>
-            <li><a href="#">Los mas pedidos*</a></li>
-            <li><a href="#">En aceites y Conservas</a></li>
-            <li><a href="#">Pasta</a></li>
-            <li><a href="#">Embutidos</a></li>
-            <li><a href="#">Platos Frios</a></li>
-            <li><a href="#">Vinos Locales</a></li>
-            <li><a href="#">Cervezas Artesanales</a></li>
-            <li><a href="#">Nuestros Panes</a></li>
-            <li><a href="#">Quesos Locales</a></li>
-          </ul>
-        </div>
-        <div class="">
-          <ul>
-            <li><a href="#">Menú de Día</a></li>
-            <li><a href="#">Menú Degustación</a></li>
-            <li><a href="#">Solo en Tienda</a></li>
-            <li><a href="#">Eventos privados</a></li>
-            <li><a href="#">Reservar</a></li>
-            <li><a href="#"> </a></li>
-          </ul>
-        </div>
-        <div class="">
-          <ul>
-            <li><a href="#"></a></li>
-            <li><a href="#">Blog: Temporada</a></li>
-            <li><a href="#">Tarjetas regalo</a></li>
-            <li><a href="#">Sobre nosotros</a></li>
-            <li><a href="#">Únete al equipo</a></li>
-          </ul>
-        </div>
-      </div>
+<div class="menu-overlay" (click)="openMenuDesdeHeader.emit()">
+</div>
+
+<div class="menu-popup">
+  <div class="menu-top">
+    <span class="menu-label">Índice</span>
+    <button class="menu-close" (click)="openMenuDesdeHeader.emit()">Cerrar ✕</button>
+  </div>
+
+  <div class="menu-grid">
+    <div>
+      <h4 class="menu-col-title">Carta</h4>
+      <ul>
+        <li><a (click)="navegar('/carta', 'todos')">Toda la carta</a></li>
+        <li><a (click)="navegar('/carta', 'entrante')">Para empezar</a></li>
+        <li><a (click)="navegar('/carta', 'principal')">Platos principales</a></li>
+        <li><a (click)="navegar('/carta', 'postre')">Postres</a></li>
+        <li><a (click)="navegar('/carta', 'bebida')">Bebidas</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="menu-col-title">Reservas y contacto</h4>
+      <ul>
+        <li><a (click)="navegar('/reservar')">Reservar mesa</a></li>
+        <li><a (click)="navegar('/contacto')">Contacto</a></li>
+        <li><a (click)="navegar('/eventos')">Eventos</a></li>
+        <li><a (click)="navegar('/productores')">Nuestros productores</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="menu-col-title">Tu cuenta</h4>
+      <ul>
+        <li><a (click)="navegar('/cuenta')">Mi cuenta</a></li>
+        <li><a (click)="navegar('/login')">Iniciar sesión</a></li>
+        <li><a (click)="navegar('/register')">Crear cuenta</a></li>
+      </ul>
+    </div>
+
+    <div class="menu-quote">
+      <p>"Cocinar lo que la tierra ofrece, cuando lo ofrece."</p>
+      <span>— Equipo Temporada</span>
+    </div>
   </div>
 </div>

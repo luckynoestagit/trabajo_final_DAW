@@ -1,0 +1,43 @@
+<section class="productores">
+  <span class="t-tag">Nuestros productores</span>
+  <h1 class="display-title">Del campo<br/><em>a tu mesa</em>.</h1>
+  <p class="productores-lead">Trabajamos con productores locales que cuidan la tierra y respetan los ciclos naturales. Cada ingrediente tiene nombre y apellido.</p>
+
+  @if (cargando) {
+    <div class="loading">Cargando productores...</div>
+  }
+
+  @if (productorAbierto) {
+    <div class="modal-overlay" (click)="cerrarProductor()">
+      <div class="modal-card" (click)="$event.stopPropagation()">
+        <button class="modal-close" (click)="cerrarProductor()">✕</button>
+        <div class="modal-img">
+          <img [src]="getImagenUrl(productorAbierto.imagen)" [alt]="productorAbierto.nombre">
+        </div>
+        <div class="modal-body">
+          <span class="productor-tipo">{{ productorAbierto.tipo }} · {{ productorAbierto.ubicacion }}</span>
+          <h2>{{ productorAbierto.nombre }}</h2>
+          <p>{{ productorAbierto.descripcion }}</p>
+        </div>
+      </div>
+    </div>
+  }
+
+  <div class="productores-grid">
+    @for (p of productores; track p.id) {
+      <article class="productor-card" (click)="abrirProductor(p)">
+        <div class="productor-img">
+          <img [src]="getImagenUrl(p.imagen)" [alt]="p.nombre">
+        </div>
+        <div class="productor-body">
+          <h3>{{ p.nombre }}</h3>
+          <span class="productor-tipo">{{ p.tipo }} · {{ p.ubicacion }}</span>
+        </div>
+      </article>
+    }
+  </div>
+
+  @if (!cargando && productores.length === 0) {
+    <p class="empty-msg">No hay productores disponibles de momento.</p>
+  }
+</section>
