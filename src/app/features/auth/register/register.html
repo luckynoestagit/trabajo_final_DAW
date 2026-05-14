@@ -1,0 +1,90 @@
+<div class="register-inner">
+  <span class="t-tag">Crear cuenta</span>
+  <h1 class="register-title">Siéntate con <em>nosotros</em>.</h1>
+  <p class="register-lead">Acceso a reservas, pedidos con un clic y el calendario de eventos.</p>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-grid">
+      <div class="field">
+        <label>Nombre</label>
+        <input class="input" type="text" formControlName="nombre" placeholder="Tu nombre"
+               [class.is-invalid]="registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched">
+        @if (registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched) {
+          <span class="field-error">El nombre es obligatorio</span>
+        }
+      </div>
+      <div class="field">
+        <label>Apellidos</label>
+        <input class="input" type="text" formControlName="apellidos" placeholder="Tus apellidos"
+               [class.is-invalid]="registerForm.get('apellidos')?.invalid && registerForm.get('apellidos')?.touched">
+        @if (registerForm.get('apellidos')?.invalid && registerForm.get('apellidos')?.touched) {
+          <span class="field-error">Los apellidos son obligatorios</span>
+        }
+      </div>
+      <div class="field" style="grid-column: span 2">
+        <label>Email</label>
+        <input class="input" type="email" formControlName="email" placeholder="tu@email.com"
+               [class.is-invalid]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+          <span class="field-error">Introduce un email válido</span>
+        }
+      </div>
+      <div class="field">
+        <label>Teléfono</label>
+        <input class="input" type="tel" formControlName="telefono" placeholder="+34 ..."
+               [class.is-invalid]="registerForm.get('telefono')?.invalid && registerForm.get('telefono')?.touched">
+        @if (registerForm.get('telefono')?.invalid && registerForm.get('telefono')?.touched) {
+          <span class="field-error">El teléfono es obligatorio</span>
+        }
+      </div>
+      <div class="field">
+        <label>Edad</label>
+        <input class="input" type="number" formControlName="edad" placeholder="Mínimo 18" min="18"
+               [class.is-invalid]="registerForm.get('edad')?.invalid && registerForm.get('edad')?.touched">
+        @if (registerForm.get('edad')?.invalid && registerForm.get('edad')?.touched) {
+          <span class="field-error">Debes ser mayor de 18 años</span>
+        }
+      </div>
+      <div class="field">
+        <label>Contraseña</label>
+        <input class="input" type="password" formControlName="password1" placeholder="Min. 8 caracteres, 1 número"
+               [class.is-invalid]="registerForm.get('password1')?.invalid && registerForm.get('password1')?.touched">
+        @if (registerForm.get('password1')?.invalid && registerForm.get('password1')?.touched) {
+          <span class="field-error">Mínimo 8 caracteres</span>
+        }
+      </div>
+      <div class="field">
+        <label>Repetir contraseña</label>
+        <input class="input" type="password" formControlName="password2" placeholder="Repite la contraseña"
+               [class.is-invalid]="registerForm.get('password2')?.invalid && registerForm.get('password2')?.touched">
+        @if (registerForm.get('password2')?.invalid && registerForm.get('password2')?.touched) {
+          <span class="field-error">Repite la contraseña</span>
+        }
+      </div>
+      <div class="field" style="grid-column: span 2">
+        <label>Dirección</label>
+        <input class="input" type="text" formControlName="direccion" placeholder="Tu dirección completa"
+               [class.is-invalid]="registerForm.get('direccion')?.invalid && registerForm.get('direccion')?.touched">
+        @if (registerForm.get('direccion')?.invalid && registerForm.get('direccion')?.touched) {
+          <span class="field-error">La dirección es obligatoria</span>
+        }
+      </div>
+    </div>
+
+    <label class="check-row">
+      <input type="checkbox"> Acepto los <a href="#">términos</a> y <a href="#">política de privacidad</a>.
+    </label>
+
+    @if (errorMessage) {
+      <div class="error-general">
+        <i class="bi bi-exclamation-circle"></i> {{ errorMessage }}
+      </div>
+    }
+
+    <button class="btn-primary" type="submit">Crear cuenta →</button>
+  </form>
+
+  <p class="register-foot">
+    ¿Ya tienes cuenta? <a (click)="onLoginClick()">Inicia sesión</a>
+  </p>
+</div>

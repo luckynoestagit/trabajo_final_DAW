@@ -1,0 +1,116 @@
+@if (confirmado) {
+  <section class="pedido-ok">
+    <span class="pedido-stamp">{{ pedidoId }}</span>
+    <span class="t-tag">Pedido confirmado</span>
+    <h1 class="display-title">¡Gracias por <em>tu pedido</em>!</h1>
+    <p class="pedido-ok__lead">Hemos recibido tu pedido correctamente. Te enviaremos una confirmación por email.</p>
+    <div class="ok-card">
+      <div class="ok-row"><span>Pedido</span><strong>{{ pedidoId }}</strong></div>
+      <div class="ok-row"><span>Total</span><strong class="total-precio">{{ total.toFixed(2) }}€</strong></div>
+      <div class="ok-row"><span>Entrega</span><strong>{{ datos.tipo_entrega === 'domicilio' ? 'A domicilio' : 'Recogida en tienda' }}</strong></div>
+      <div class="ok-row"><span>Pago</span><strong>{{ datos.metodo_pago === 'paypal' ? 'PayPal' : 'Tarjeta' }}</strong></div>
+    </div>
+    <div class="ok-actions">
+      <button class="btn-primary" (click)="irACuenta()">Ver mis pedidos</button>
+      <button class="btn-link" (click)="volverACarta()">Seguir comprando</button>
+    </div>
+  </section>
+} @else {
+  <section class="pedido">
+    <span class="t-tag">Finalizar pedido</span>
+    <h1 class="display-title">Confirma tu <em>pedido</em>.</h1>
+
+    <div class="pedido__grid">
+      <div class="pedido__form">
+
+        <h3 class="pedido__h3">Tus datos</h3>
+        <div class="form-grid">
+          <div class="field">
+            <label>Nombre</label>
+            <input class="input" type="text" [(ngModel)]="datos.nombre_cliente" placeholder="Tu nombre">
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input class="input" type="email" [(ngModel)]="datos.email_cliente" placeholder="tu@email.com">
+          </div>
+          <div class="field">
+            <label>Teléfono</label>
+            <input class="input" type="tel" [(ngModel)]="datos.telefono_cliente" placeholder="+34 ...">
+          </div>
+        </div>
+
+        <h3 class="pedido__h3" style="margin-top: 32px">Tipo de entrega</h3>
+        <div class="entrega-btns">
+          <button [class.is-on]="datos.tipo_entrega === 'domicilio'"
+                  (click)="datos.tipo_entrega = 'domicilio'">
+             A domicilio
+          </button>
+          <button [class.is-on]="datos.tipo_entrega === 'recogida'"
+                  (click)="datos.tipo_entrega = 'recogida'">
+             Recogida en tienda
+          </button>
+        </div>
+
+        @if (datos.tipo_entrega === 'domicilio') {
+          <div class="field" style="margin-top: 16px">
+            <label>Dirección de entrega</label>
+            <input class="input" type="text" [(ngModel)]="datos.direccion_entrega" placeholder="Calle, número, piso...">
+          </div>
+        }
+
+        <h3 class="pedido__h3" style="margin-top: 32px">Método de pago</h3>
+        <div class="pago-btns">
+          <button [class.is-on]="datos.metodo_pago === 'paypal'"
+                  (click)="datos.metodo_pago = 'paypal'; paypalVisible = false; paypalRendered = false;">
+            PayPal
+          </button>
+          <button [class.is-on]="datos.metodo_pago === 'tarjeta'"
+                  (click)="datos.metodo_pago = 'tarjeta'; paypalVisible = false;">
+            Tarjeta de crédito
+          </button>
+        </div>
+
+        <div class="field" style="margin-top: 24px">
+          <label>Observaciones (opcional)</label>
+          <textarea class="input" [(ngModel)]="datos.observaciones" placeholder="Alergias, instrucciones..."></textarea>
+        </div>
+
+        @if (errorMsg) {
+          <div class="error-general">
+            <i class="bi bi-exclamation-circle"></i> {{ errorMsg }}
+          </div>
+        }
+
+        @if (datos.metodo_pago === 'paypal' && paypalVisible) {
+          <div class="paypal-container">
+            <span class="t-tag">Pagar con PayPal</span>
+            <div id="paypal-button-container"></div>
+          </div>
+        }
+      </div>
+
+      <aside class="pedido__resumen">
+        <span class="t-tag">Resumen del pedido</span>
+        @for (item of items; track item.producto.id) {
+          <div class="resumen-item">
+            <span>{{ item.cantidad }}x {{ item.producto.nombre }}</span>
+            <strong>{{ (item.cantidad * +item.producto.precio).toFixed(2) }}€</strong>
+          </div>
+        }
+        <hr>
+        <div class="resumen-total">
+          <span>Total</span>
+          <strong>{{ total.toFixed(2) }}€</strong>
+        </div>
+
+        @if (datos.metodo_pago === 'paypal') {
+          @if (!paypalVisible) {
+            <button class="btn-primary" (click)="mostrarPaypal()">Pagar con PayPal →</button>
+          }
+        } @else {
+          <button class="btn-primary" (click)="confirmarTarjeta()">Confirmar y pagar →</button>
+        }
+      </aside>
+    </div>
+  </section>
+}

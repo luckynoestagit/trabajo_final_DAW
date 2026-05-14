@@ -1,0 +1,37 @@
+<div class="login-inner">
+  <span class="t-tag">Acceso · clientes</span>
+  <h1 class="login-title">Bienvenido,<br/><em>pasa adentro</em>.</h1>
+  <p class="login-lead">Entra para gestionar tus reservas, pedidos y direcciones guardadas.</p>
+
+  <form [formGroup]="formLogin" (ngSubmit)="iniciarSesion()">
+    <div class="field">
+      <label>Email</label>
+      <input class="input" type="email" formControlName="email" placeholder="tu@email.com"
+             [class.is-invalid]="formLogin.get('email')?.invalid && formLogin.get('email')?.touched">
+      @if (formLogin.get('email')?.invalid && formLogin.get('email')?.touched) {
+        <span class="field-error">Introduce un email válido</span>
+      }
+    </div>
+    <div class="field" style="margin-top: 18px">
+      <label>Contraseña</label>
+      <input class="input" type="password" formControlName="password" placeholder="••••••••"
+             [class.is-invalid]="formLogin.get('password')?.invalid && formLogin.get('password')?.touched">
+      @if (formLogin.get('password')?.invalid && formLogin.get('password')?.touched) {
+        <span class="field-error">Mínimo 6 caracteres</span>
+      }
+    </div>
+
+    @if (errorMessage) {
+      <div class="error-general">
+        <i class="bi bi-exclamation-circle"></i> {{ errorMessage }}
+      </div>
+    }
+
+    <button class="btn-primary" type="submit">Entrar →</button>
+  </form>
+
+  <p class="login-foot">
+    ¿Primera vez por aquí?
+    <a (click)="onRegisterClick()">Crea una cuenta</a>
+  </p>
+</div>

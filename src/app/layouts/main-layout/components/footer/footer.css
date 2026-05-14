@@ -1,0 +1,179 @@
+.footer {
+  background-color: var(--color-primary);
+  padding: 80px 24px 40px;
+}
+
+.footer, .footer * {
+  color: #fff;
+}
+
+/* Fila 1 — Logo + texto */
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 60px;
+}
+
+.logo-text {
+  font-family: 'Fraunces', serif;
+  font-size: 120px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.footer-intro {
+  font-size: 35px;
+  line-height: 1.8;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Fila 2 — Newsletter + enlaces */
+.footer-bottom-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.footer-left h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 42px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.footer-left p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin: 0 0 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  max-width: 400px;
+}
+
+.email-input {
+  flex: 1;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
+  background: #fff;
+  color: #1a1d14;
+}
+
+.subscribe-btn {
+  padding: 14px 24px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.subscribe-btn:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Columnas de enlaces */
+.footer-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+}
+
+.footer-col h4 {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 20px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  font-size: 18px;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.18s;
+}
+
+.footer-col ul li a:hover {
+  opacity: 1;
+}
+
+/* Copyright */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.16);
+  padding: 24px 0 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 48px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-top,
+  .footer-bottom-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .logo-text {
+    font-size: 60px;
+  }
+
+  .footer-right {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-left h3 {
+    font-size: 32px;
+  }
+
+  .footer-intro {
+    font-size: 18px;
+  }
+}
+.suscrito-msg {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  color: #fff;
+  margin-top: 12px;
+}
+
+.suscrito-error {
+  font-size: 13px;
+  color: #ffcccc;
+  margin-top: 8px;
+}
+
+.email-input {
+  flex: 1;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
+  background: #fff;
+  color: #1a1d14 !important;
+}

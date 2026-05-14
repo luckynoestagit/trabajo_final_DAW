@@ -1,0 +1,134 @@
+<section class="eventos">
+  <span class="t-tag">Eventos · Temporada 2026</span>
+  <h1 class="display-title">Cada estación,<br/><em>una experiencia</em>.</h1>
+  <p class="eventos-lead">Cenas maridaje, talleres de cocina y encuentros con nuestros productores.</p>
+
+  @if (cargando) {
+    <div class="loading">Cargando eventos...</div>
+  }
+
+  @if (eventoAbierto) {
+    <div class="evento-detalle">
+      <button class="btn-volver" (click)="cerrarEvento()">← Volver a eventos</button>
+
+      <div class="detalle-grid">
+        <div class="detalle-info">
+          @if (eventoAbierto.imagen) {
+            <div class="detalle-img">
+              <img [src]="getImagenUrl(eventoAbierto.imagen)" [alt]="eventoAbierto.titulo">
+            </div>
+          }
+          <h2 class="detalle-titulo">{{ eventoAbierto.titulo }}</h2>
+          <p class="detalle-desc">{{ eventoAbierto.descripcion }}</p>
+          <div class="detalle-meta">
+            <div class="meta-item">
+              <span class="meta-label">Hora</span>
+              <strong>{{ eventoAbierto.hora }}</strong>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Precio</span>
+              <strong>{{ eventoAbierto.precio > 0 ? eventoAbierto.precio + '€ / persona' : 'Entrada libre' }}</strong>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Plazas disponibles</span>
+              <strong [class.pocas]="eventoAbierto.plazas_disponibles < 5">
+                {{ eventoAbierto.plazas_disponibles }} / {{ eventoAbierto.plazas_totales }}
+              </strong>
+            </div>
+          </div>
+
+          @if (eventoAbierto.inscripciones && eventoAbierto.inscripciones.length > 0) {
+            <div class="inscritos-lista">
+              <span class="t-tag">Inscritos</span>
+              @for (i of eventoAbierto.inscripciones; track i.id) {
+                <div class="inscrito-row">
+                  <span>{{ i.nombre }}</span>
+                  <span class="inscrito-personas">{{ i.num_personas }} pers.</span>
+                  <span class="inscrito-estado" [class.ok]="i.estado === 'confirmada'">{{ i.estado }}</span>
+                </div>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="detalle-form">
+          @if (inscripcionOk) {
+            <div class="inscripcion-ok">
+              <div class="ok-icon">✓</div>
+              <h3>¡Inscripción confirmada!</h3>
+              <p>Te hemos reservado {{ formInscripcion.num_personas }} plaza(s).</p>
+              <button class="btn-ghost" (click)="cerrarEvento()">Volver a eventos</button>
+            </div>
+          } @else if (eventoAbierto.plazas_disponibles === 0) {
+            <div class="inscripcion-ok">
+              <h3>Evento completo</h3>
+              <p>No quedan plazas disponibles para este evento.</p>
+            </div>
+          } @else {
+            <span class="t-tag">Reservar plaza</span>
+            <h3 class="form-title">Inscríbete</h3>
+            <div class="form-fields">
+              <div class="field">
+                <label>Nombre</label>
+                <input class="input" type="text" [(ngModel)]="formInscripcion.nombre" placeholder="Tu nombre">
+              </div>
+              <div class="field">
+                <label>Email</label>
+                <input class="input" type="email" [(ngModel)]="formInscripcion.email" placeholder="tu@email.com">
+              </div>
+              <div class="field">
+                <label>Teléfono</label>
+                <input class="input" type="tel" [(ngModel)]="formInscripcion.telefono" placeholder="+34 ...">
+              </div>
+              <div class="field">
+                <label>Nº de personas</label>
+                <div class="personas-ctrl">
+                  <button (click)="formInscripcion.num_personas = formInscripcion.num_personas > 1 ? formInscripcion.num_personas - 1 : 1">−</button>
+                  <span>{{ formInscripcion.num_personas }}</span>
+                  <button (click)="formInscripcion.num_personas = formInscripcion.num_personas + 1">+</button>
+                </div>
+              </div>
+            </div>
+            @if (errorMsg) {
+              <div class="error-general">{{ errorMsg }}</div>
+            }
+            <button class="btn-primary" (click)="inscribirse()">Confirmar inscripción →</button>
+          }
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="eventos-grid">
+      @for (evento of eventos; track evento.id) {
+        <article class="evento-card" (click)="abrirEvento(evento)">
+          @if (evento.imagen) {
+            <div class="evento-img">
+              <img [src]="getImagenUrl(evento.imagen)" [alt]="evento.titulo">
+            </div>
+          } @else {
+            <div class="evento-fecha">
+              <span class="evento-dia">{{ evento.fecha | date:'dd' }}</span>
+              <span class="evento-mes">{{ evento.fecha | date:'MMM' }}</span>
+            </div>
+          }
+          <div class="evento-body">
+            <h3>{{ evento.titulo }}</h3>
+            <p>{{ evento.descripcion }}</p>
+            <div class="evento-meta">
+              <span>{{ evento.hora }}</span>
+              <span>·</span>
+              <span>{{ evento.precio > 0 ? evento.precio + '€ / persona' : 'Entrada libre' }}</span>
+              <span>·</span>
+              <span [class.pocas]="evento.plazas_disponibles < 5">{{ evento.plazas_disponibles }} plazas</span>
+            </div>
+          </div>
+          <div class="evento-arrow">→</div>
+        </article>
+      }
+
+      @if (!cargando && eventos.length === 0) {
+        <p class="empty-msg">No hay eventos programados de momento.</p>
+      }
+    </div>
+  }
+</section>

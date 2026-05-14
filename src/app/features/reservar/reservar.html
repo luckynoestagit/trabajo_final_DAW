@@ -1,0 +1,134 @@
+@if (confirmada) {
+  <!-- Pantalla de Éxito -->
+  <div class="reserva-ok">
+    <span class="reserva-stamp">{{ reservaId }}</span>
+    <span class="t-tag">Reserva confirmada</span>
+    <h1 class="display-title">Gracias, <em>te esperamos</em>.</h1>
+    <p>Hemos enviado la confirmación a tu email.</p>
+    <div class="ok-card">
+      <div class="ok-row"><span>Fecha</span><strong>{{ form.get('fecha')?.value }}</strong></div>
+      <div class="ok-row"><span>Hora</span><strong>{{ form.get('hora')?.value }}</strong></div>
+      <div class="ok-row"><span>Personas</span><strong>{{ form.get('num_personas')?.value }}</strong></div>
+      <div class="ok-row"><span>Sala</span><strong>{{ form.get('sala')?.value === 'principal' ? 'Sala Principal' : 'Terraza' }}</strong></div>
+    </div>
+  </div>
+} @else {
+  <section class="reserva">
+    <div class="reserva__head">
+      <span class="t-tag">Reservar mesa</span>
+      <h1 class="display-title">Elige tu <em>momento</em>.</h1>
+      <div class="steps">
+        <span [class.is-on]="step >= 1">01 · Fecha y hora</span>
+        <span [class.is-on]="step >= 2">02 · Tus datos</span>
+      </div>
+    </div>
+
+    <div class="reserva__grid" [formGroup]="form">
+      <div class="reserva__main">
+        @if (step === 1) {
+          <h3 class="reserva__h3">Fecha</h3>
+          <input class="input-fecha"
+                 type="date"
+                 formControlName="fecha"
+                 [min]="fechaHoy"
+                 [class.input-error]="form.get('fecha')?.errors?.['cerrado']">
+
+          <!-- AVISO DE LUNES CERRADO -->
+          @if (form.get('fecha')?.errors?.['cerrado']) {
+            <p class="error-text-inline">Cerramos los lunes por descanso.</p>
+          }
+
+          <h3 class="reserva__h3" style="margin-top:32px">Hora</h3>
+          <div class="horas-grid">
+            @for (h of horas; track h) {
+              <button class="hora-btn"
+                      type="button"
+                      [class.is-on]="form.get('hora')?.value === h"
+                      (click)="seleccionarHora(h)">{{ h }}</button>
+            }
+          </div>
+
+          <div class="reserva__row" style="margin-top:32px">
+            <div>
+              <h3 class="reserva__h3">Comensales</h3>
+              <div class="personas-ctrl">
+                <button type="button"
+                        (click)="form.patchValue({num_personas: (form.get('num_personas')?.value || 2) > 1 ? (form.get('num_personas')?.value || 2) - 1 : 1})">
+                  −
+                </button>
+                <span>{{ form.get('num_personas')?.value }}</span>
+                <button type="button"
+                        (click)="form.patchValue({num_personas: (form.get('num_personas')?.value || 2) + 1})">
+                  +
+                </button>
+              </div>
+            </div>
+            <div>
+              <h3 class="reserva__h3">Sala</h3>
+              <div class="sala-btns">
+                <button type="button"
+                        [class.is-on]="form.get('sala')?.value === 'principal'"
+                        (click)="form.patchValue({sala: 'principal'})">Sala principal</button>
+                <button type="button"
+                        [class.is-on]="form.get('sala')?.value === 'terraza'"
+                        (click)="form.patchValue({sala: 'terraza'})">Terraza</button>
+              </div>
+            </div>
+          </div>
+        }
+
+        @if (step === 2) {
+          <h3 class="reserva__h3">Tus datos</h3>
+          <div class="form-grid">
+            <div class="field">
+              <label>Nombre</label>
+              <input class="input" type="text" formControlName="nombre_cliente" placeholder="Tu nombre">
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input class="input" type="email" formControlName="email_cliente" placeholder="tu@email.com">
+            </div>
+            <div class="field">
+              <label>Teléfono</label>
+              <input class="input" type="tel" formControlName="telefono_cliente" placeholder="+34 ...">
+            </div>
+            <div class="field" style="grid-column: span 2">
+              <label>Peticiones especiales</label>
+              <textarea class="input" formControlName="observaciones" placeholder="Alergias, celebración..."></textarea>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- ASIDE DE RESUMEN -->
+      <aside class="reserva__summary">
+        <span class="t-tag">Resumen</span>
+        <div class="summary-row"><span>Fecha</span><strong>{{ form.get('fecha')?.value || '—' }}</strong></div>
+        <div class="summary-row"><span>Hora</span><strong>{{ form.get('hora')?.value }}</strong></div>
+        <div class="summary-row"><span>Personas</span><strong>{{ form.get('num_personas')?.value }}</strong></div>
+        <div class="summary-row"><span>Sala</span><strong>{{ form.get('sala')?.value === 'principal' ? 'Principal' : 'Terraza' }}</strong></div>
+
+        @if (errorMsg) {
+          <div class="error-box animate-in">
+            {{ errorMsg }}
+          </div>
+        }
+
+        <hr>
+        @if (step === 1) {
+          <button class="btn-primary"
+                  [disabled]="loading || !!form.get('fecha')?.errors?.['cerrado']"
+                  (click)="siguiente()">
+            {{ loading ? 'Comprobando...' : 'Siguiente →' }}
+          </button>
+        }
+        @if (step === 2) {
+          <button class="btn-primary"
+                  [disabled]="form.invalid"
+                  (click)="confirmar()">Confirmar reserva →</button>
+          <button class="btn-link" (click)="step = 1">← Cambiar fecha</button>
+        }
+      </aside>
+    </div>
+  </section>
+}

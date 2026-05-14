@@ -1,0 +1,66 @@
+<div class="footer">
+  <div class="container-footer">
+
+    <div class="footer-top">
+      <div class="footer-top-left">
+        <a routerLink="/" class="logo-text">Temporada</a>
+      </div>
+      <div class="footer-top-right">
+        <p class="footer-intro">En Temporada apostamos por lo local y lo natural. Trabajamos con productores de la zona,
+          reduciendo la huella de carbono y garantizando frescura en cada plato. Gracias a ti,
+          desde 2025 hemos apoyado a más de 20 productores locales y evitado miles de kilómetros
+          de transporte innecesario.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom-content">
+      <div class="footer-left">
+        <h3>Mantente Informado</h3>
+        <p>Suscríbete para recibir ofertas y novedades</p>
+        @if (suscrito) {
+          <p class="suscrito-msg">{{ mensajeSuscripcion }}</p>
+        } @else {
+          <div class="newsletter-form">
+            <input type="email" placeholder="Email" class="email-input" [(ngModel)]="emailSuscripcion">
+            <button class="subscribe-btn" (click)="suscribir()">Suscribir</button>
+          </div>
+          @if (mensajeSuscripcion && !suscrito) {
+            <p class="suscrito-error">{{ mensajeSuscripcion }}</p>
+          }
+        }
+      </div>
+      <div class="footer-right">
+        <div class="footer-col">
+          <h4>Navegar</h4>
+          <ul>
+            <li><a routerLink="/carta">La Carta</a></li>
+            <li><a routerLink="/reservar">Reservar mesa</a></li>
+            <li><a routerLink="/eventos">Eventos</a></li>
+            <li><a routerLink="/productores">Productores</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Síguenos</h4>
+          <ul>
+            <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+            <li><a href="https://tiktok.com" target="_blank">TikTok</a></li>
+            <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Información</h4>
+          <ul>
+            <li><a routerLink="/cuenta">Mi cuenta</a></li>
+            <li><a routerLink="/contacto">Contacto</a></li>
+            <li><a routerLink="/login">Iniciar sesión</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Temporada · Todos los derechos reservados</span>
+      <span>C/ Major 42, 08002 Barcelona</span>
+    </div>
+  </div>
+</div>

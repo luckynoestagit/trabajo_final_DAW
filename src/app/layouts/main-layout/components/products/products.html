@@ -1,0 +1,43 @@
+<div class="products-section">
+  <div class="products-header">
+    <span class="t-tag">Recomendados esta semana</span>
+    <button class="btn-ver-carta" (click)="verCarta()">Ver toda la carta →</button>
+  </div>
+
+  @if (cargando) {
+    <div class="loading">Cargando productos...</div>
+  }
+
+  <div class="carousel-wrapper">
+    <button class="carousel-btn prev" (click)="scrollLeft()">
+      <i class="bi bi-arrow-left"></i>
+    </button>
+
+    <div class="product-container">
+      <div class="product-scroll">
+        @for (producto of productos; track producto.id) {
+          <div class="product-item">
+            <div class="product-img-wrap">
+              <img [src]="getImagenUrl(producto.imagen)"
+                   [alt]="producto.nombre"
+                   (error)="$any($event.target).src='assets/img/plato-default.png'">
+              <span class="product-temporada">{{ producto.temporada }}</span>
+            </div>
+            <div class="product-info">
+              <h3>{{ producto.nombre }}</h3>
+              <p class="product-origen">{{ producto.categoria }}</p>
+              <div class="product-foot">
+                <span class="product-precio">{{ producto.precio }}€</span>
+                <span class="product-add">Añadir +</span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <button class="carousel-btn next" (click)="scrollRight()">
+      <i class="bi bi-arrow-right"></i>
+    </button>
+  </div>
+</div>

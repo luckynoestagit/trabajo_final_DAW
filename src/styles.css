@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+@font-face {
+  font-family: DMSerifText;
+  src: url("../public/fonts/DMSerifText-Regular.ttf") format("truetype");
+  font-style: normal;
+}
+
+:root {
+  /* Colores principales  de la web -- estos siempre permanecaran */
+  --color-primary: #6b8d23;
+  --color-secondary: #ffffff;
+}
+  body{
+    background-color: #fdfdfd;
+  }
+  * {
+    font-family: "DMSerifText", sans-serif;
+    color: var(--color-primary);
+
+  }
+
