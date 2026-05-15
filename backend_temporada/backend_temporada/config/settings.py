@@ -1,3 +1,6 @@
+import os
+import cloudinary
+import dj_database_url
 from datetime import timedelta
 from pathlib import Path
 
@@ -18,6 +21,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
+    'cloudinary',
     'django.contrib.staticfiles',
     'rest_framework',
     'menu.apps.MenuConfig',
@@ -108,3 +113,12 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "tu-correo@gmail.com"
 EMAIL_HOST_PASSWORD = "tu-password"
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# --- CLOUDINARY CONFIG --- #
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
