@@ -1,0 +1,7 @@
+{
+  "buildCommand": "ng build",
+  "outputDirectory": "dist/frontend-temporada/browser",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
